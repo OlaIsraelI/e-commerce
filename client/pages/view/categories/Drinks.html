@@ -1,0 +1,485 @@
+﻿<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Drinks | Ultraveg Pizza</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="../../../assets/css/global.css" />
+
+    <link rel="stylesheet" href="../../../assets/css/drinks.css" />
+  </head>
+  <body>
+    <header class="header">
+      <nav class="navigation-bar">
+        <a class="logo" href="index.html" aria-label="Go to home section">
+          <img src="../../../assets/images/logo.png" alt="Logo" />
+        </a>
+        <button
+          class="nav-toggle"
+          type="button"
+          aria-label="Open menu"
+          aria-expanded="false"
+          aria-controls="primary-nav-menu"
+        >
+          <i class="fa-solid fa-bars" aria-hidden="true"></i>
+        </button>
+        <div class="nav-links" id="primary-nav-menu">
+          <ul>
+            <li>
+              <a class="nav-order-button" href="../../view/about.html">ABOUT</a>
+            </li>
+            <li><a href="../contact.html">CONTACT</a></li>
+            <li>
+              <a href="../contact.html">CATEGORIES</a>
+            </li>
+            <li><a href="../menu/menu.html">MENU</a></li>
+          </ul>
+        </div>
+        <div class="nav-actions">
+          <a
+            class="cart-link"
+            href="../../view/cart.html"
+            aria-label="Shopping cart"
+          >
+            <i class="fa-solid fa-cart-shopping"></i>
+            <span>CART</span>
+          </a>
+          <a
+            class="wishlist-link"
+            href="../../view/wishlist.html"
+            aria-label="Wishlist"
+          >
+            <i class="fa-regular fa-heart"></i>
+            <span>WISHLIST</span>
+          </a>
+          <a
+            class="signup-button"
+            href="../../auth/login.html"
+            aria-label="Account"
+          >
+            <i class="fa-regular fa-user"></i>
+            <span>ORDER NOW</span>
+          </a>
+        </div>
+      </nav>
+    </header>
+
+    <main class="category-page">
+      <div class="category-container">
+        <a href="./categories.html" class="back-link">
+          <i class="fa-solid fa-arrow-left"></i> Back to Categories
+        </a>
+
+        <div class="category-hero">
+          <h1>Drinks</h1>
+          <p></p>
+        </div>
+
+        <div id="productsGrid" class="products-grid"></div>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="section-shell footer-grid">
+        <div class="footer-brand">
+          <div class="footer-brand-head">
+            <img
+              class="footer-logo"
+              src="../../../assets/images/logo.png"
+              alt="Logo"
+            />
+            <h3>UltraVeg Pizza</h3>
+          </div>
+          <p>Bringing authentic Italian pizza to your table today.</p>
+        </div>
+        <div class="footer-column">
+          <h3>Contact</h3>
+          <ul class="footer-contact-list">
+            <li>
+              <i class="fa-solid fa-location-dot"></i
+              ><span>Redeemers University, Ede, Osun State, Nigeria.</span>
+            </li>
+            <li>
+              <i class="fa-solid fa-phone"></i><span>+234 706 4207 988</span>
+            </li>
+            <li>
+              <i class="fa-solid fa-envelope"></i
+              ><span>ultravegpizza@gmail.com</span>
+            </li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3>Opening Hours</h3>
+          <ul class="footer-days-list">
+            <li>Monday - Sunday</li>
+            <li>10:00 AM - 10:00 PM</li>
+          </ul>
+        </div>
+        <div class="footer-column footer-social-column">
+          <h3>Follow Us</h3>
+          <div class="footer-socials">
+            <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+            <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-copy section-shell">
+        Â© 2026 UltraVeg Pizza. All rights reserved. | Crafted with care
+      </div>
+    </footer>
+
+    <script>
+      // Category-specific product data
+      const categoryProducts = {
+        drinks: [
+          {
+            id: 101,
+            name: "Coca Cola",
+            price: 1500,
+            image: "../../../assets/images/coca-cola 03.jpg",
+          },
+          {
+            id: 102,
+            name: "Fanta Orange",
+            price: 1500,
+            image: "../../../assets/images/fanta 00.jpg",
+          },
+          {
+            id: 103,
+            name: "Sprite",
+            price: 1500,
+            image: "../../../assets/images/sprite 01.jpg",
+          },
+          {
+            id: 104,
+            name: "Pepsi",
+            price: 1500,
+            image: "../../../assets/images/pepsi.jpg",
+          },
+          {
+            id: 105,
+            name: "caprisun",
+            price: 2000,
+            image: "../../../assets/images/caprisun.jpg",
+          },
+          {
+            id: 106,
+            name: "Malta Guinness",
+            price: 2500,
+            image: "../../../assets/images/malta 00.jpg",
+          },
+          {
+            id: 107,
+            name: "Orange Juice",
+            price: 2000,
+            image: "../../../assets/images/tropicana 01.jpg",
+          },
+          {
+            id: 108,
+            name: "Mineral Water",
+            price: 1000,
+            image: "../../../assets/images/nestle-water.jpg",
+          },
+        ],
+        dessert: [
+          {
+            id: 201,
+            name: "Chocolate Cake",
+            price: 3500,
+            oldPrice: 4500,
+            image: "../../../assets/images/book-an-event.jpg",
+          },
+          {
+            id: 202,
+            name: "Cheesecake",
+            price: 4000,
+            oldPrice: 5000,
+            image: "../../../assets/images/book-an-event.jpg",
+          },
+          {
+            id: 203,
+            name: "Ice Cream Sundae",
+            price: 2500,
+            image: "../../../assets/images/book-an-event.jpg",
+          },
+          {
+            id: 204,
+            name: "Brownie",
+            price: 2000,
+            image: "../../../assets/images/book-an-event.jpg",
+          },
+          {
+            id: 205,
+            name: "Tiramisu",
+            price: 4500,
+            oldPrice: 5500,
+            image: "../../../assets/images/book-an-event.jpg",
+          },
+          {
+            id: 206,
+            name: "Fruit Tart",
+            price: 3000,
+            image: "../../../assets/images/book-an-event.jpg",
+          },
+        ],
+        pasta: [
+          {
+            id: 301,
+            name: "Alfredo Pasta",
+            price: 15000,
+            oldPrice: 18000,
+            image: "../../../assets/images/reservation.jpg",
+          },
+          {
+            id: 302,
+            name: "Carbonara",
+            price: 16000,
+            oldPrice: 19000,
+            image: "../../../assets/images/reservation.jpg",
+          },
+          {
+            id: 303,
+            name: "Bolognese",
+            price: 14000,
+            oldPrice: 17000,
+            image: "../../../assets/images/reservation.jpg",
+          },
+          {
+            id: 304,
+            name: "Pesto Pasta",
+            price: 15000,
+            image: "../../../assets/images/reservation.jpg",
+          },
+          {
+            id: 305,
+            name: "Marinara",
+            price: 12000,
+            image: "../../../assets/images/reservation.jpg",
+          },
+          {
+            id: 306,
+            name: "Seafood Pasta",
+            price: 20000,
+            oldPrice: 24000,
+            image: "../../../assets/images/reservation.jpg",
+          },
+          {
+            id: 307,
+            name: "Mac & Cheese",
+            price: 13000,
+            image: "../../../assets/images/reservation.jpg",
+          },
+        ],
+        chicken: [
+          {
+            id: 401,
+            name: "Grilled Chicken",
+            price: 12000,
+            oldPrice: 15000,
+            image: "../../../assets/images/delivery.jpg",
+          },
+          {
+            id: 402,
+            name: "Fried Chicken",
+            price: 10000,
+            oldPrice: 13000,
+            image: "../../../assets/images/delivery.jpg",
+          },
+          {
+            id: 403,
+            name: "Spicy Chicken",
+            price: 11000,
+            image: "../../../assets/images/delivery.jpg",
+          },
+          {
+            id: 404,
+            name: "BBQ Chicken",
+            price: 13000,
+            oldPrice: 16000,
+            image: "../../../assets/images/delivery.jpg",
+          },
+          {
+            id: 405,
+            name: "Peri-Peri Chicken",
+            price: 12500,
+            image: "../../../assets/images/delivery.jpg",
+          },
+        ],
+        fries: [
+          {
+            id: 501,
+            name: "Classic Fries",
+            price: 3000,
+            image: "../../../assets/images/delivery.jpg",
+          },
+          {
+            id: 502,
+            name: "Cheese Fries",
+            price: 4500,
+            oldPrice: 5500,
+            image: "../../../assets/images/delivery.jpg",
+          },
+          {
+            id: 503,
+            name: "Chili Fries",
+            price: 5000,
+            image: "../../../assets/images/delivery.jpg",
+          },
+          {
+            id: 504,
+            name: "Garlic Fries",
+            price: 4000,
+            image: "../../../assets/images/delivery.jpg",
+          },
+          {
+            id: 505,
+            name: "Loaded Fries",
+            price: 6000,
+            oldPrice: 7500,
+            image: "../../../assets/images/delivery.jpg",
+          },
+        ],
+        chickenchips: [
+          {
+            id: 601,
+            name: "Chicken & Chips Combo",
+            price: 15000,
+            oldPrice: 18000,
+            image: "../../../assets/images/delivery.jpg",
+          },
+          {
+            id: 602,
+            name: "Spicy Chicken & Chips",
+            price: 16000,
+            image: "../../../assets/images/delivery.jpg",
+          },
+          {
+            id: 603,
+            name: "BBQ Chicken & Chips",
+            price: 17000,
+            oldPrice: 20000,
+            image: "../../../assets/images/delivery.jpg",
+          },
+          {
+            id: 604,
+            name: "Family Pack (4 pcs)",
+            price: 25000,
+            oldPrice: 30000,
+            image: "../../../assets/images/delivery.jpg",
+          },
+          {
+            id: 605,
+            name: "Jumbo Pack (6 pcs)",
+            price: 35000,
+            oldPrice: 42000,
+            image: "../../../assets/images/delivery.jpg",
+          },
+          {
+            id: 606,
+            name: "Kids Meal",
+            price: 8000,
+            image: "../../../assets/images/delivery.jpg",
+          },
+        ],
+      };
+
+      let cart = [];
+
+      function loadCart() {
+        const saved = localStorage.getItem("ultraveg_cart");
+        if (saved) cart = JSON.parse(saved);
+      }
+
+      function saveCart() {
+        localStorage.setItem("ultraveg_cart", JSON.stringify(cart));
+      }
+
+      function addToCart(product) {
+        const existing = cart.find((i) => i.id === product.id);
+        if (existing) {
+          existing.quantity += 1;
+        } else {
+          cart.push({ ...product, quantity: 1 });
+        }
+        saveCart();
+        showToast(`${product.name} added to cart!`);
+      }
+
+      function showToast(message) {
+        const toast = document.createElement("div");
+        toast.className = "toast-message";
+        toast.innerHTML = `<i class="fa-solid fa-check-circle"></i> ${message}`;
+        Object.assign(toast.style, {
+          position: "fixed",
+          bottom: "20px",
+          right: "20px",
+          background: "#2f6f52",
+          color: "white",
+          padding: "12px 20px",
+          borderRadius: "50px",
+          zIndex: "1000",
+          animation: "slideIn 0.3s ease",
+        });
+        document.body.appendChild(toast);
+        setTimeout(() => toast.remove(), 2500);
+      }
+
+      function renderProducts() {
+        const grid = document.getElementById("productsGrid");
+        if (!grid) return;
+
+        // Determine which category we're on
+        const path = window.location.pathname;
+        let products = [];
+        if (path.includes("Drinks")) products = categoryProducts.drinks;
+        else if (path.includes("Dessert")) products = categoryProducts.dessert;
+        else if (path.includes("Pasta")) products = categoryProducts.pasta;
+        else if (path.includes("Tasty-Chicken"))
+          products = categoryProducts.chicken;
+        else if (path.includes("Fries")) products = categoryProducts.fries;
+        else if (path.includes("Chicken-chips"))
+          products = categoryProducts.chickenchips;
+
+        grid.innerHTML = products
+          .map(
+            (p) => `
+          <div class="product-card">
+            <button class="wishlist-btn" onclick="alert('Add to wishlist: ${p.name}')">
+              <i class="far fa-heart"></i>
+            </button>
+            <div class="product-image">
+              <img src="${p.image}" alt="${p.name}">
+            </div>
+            <div class="product-content">
+              <h3 class="product-title">${p.name}</h3>
+              <div class="price-section">
+                <span class="current-price">â‚¦${p.price.toLocaleString()}</span>
+                ${p.oldPrice ? `<span class="old-price">â‚¦${p.oldPrice.toLocaleString()}</span>` : ""}
+              </div>
+              <button class="add-to-cart" onclick="addToCart({id: ${p.id}, name: '${p.name}', price: ${p.price}, image: '${p.image}'})">
+                <i class="fa-solid fa-cart-plus"></i> Add to Cart
+              </button>
+            </div>
+          </div>
+        `,
+          )
+          .join("");
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        loadCart();
+        renderProducts();
+      });
+    </script>
+    <script type="module" src="../../../js/menu-view.js"></script>
+  </body>
+</html>

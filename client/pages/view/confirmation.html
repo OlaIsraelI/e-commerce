@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Order Confirmation</title>
+    <link rel="stylesheet" href="../../assets/css/global.css" />
+    <style>
+      .confirm-shell {
+        max-width: 900px;
+        margin: 36px auto;
+        padding: 0 20px;
+      }
+      .confirm-card {
+        background: var(--surface);
+        border: 1px solid rgba(25, 25, 25, 0.06);
+        border-radius: 16px;
+        padding: 18px;
+        box-shadow: var(--shadow);
+      }
+      .order-meta {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+        align-items: center;
+      }
+      .order-items {
+        margin-top: 12px;
+        display: grid;
+        gap: 8px;
+      }
+      .order-item {
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+      }
+      .empty {
+        color: var(--muted);
+      }
+    </style>
+  </head>
+  <body>
+    <header class="header">
+      <nav class="navigation-bar">
+        <a class="logo" href="../../index.html" aria-label="Go to home section">
+          <img src="../../assets/images/logo.png" alt="Logo" />
+        </a>
+      </nav>
+    </header>
+
+    <main class="confirm-shell">
+      <section class="confirm-card">
+        <h1>Order Confirmation</h1>
+        <p id="orderMessage">Thank you — your order is confirmed.</p>
+
+        <div id="orderDetails">
+          <!-- populated by JS -->
+        </div>
+
+        <div style="margin-top: 18px">
+          <a class="primary-button" href="../../pages/view/menu/menu.html"
+            >Continue Shopping</a
+          >
+        </div>
+      </section>
+    </main>
+
+    <script
+      type="module"
+      src="../../js/features/commerce/confirmation.js"
+    ></script>
+  </body>
+</html>

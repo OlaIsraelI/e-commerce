@@ -1,0 +1,1339 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home - Ultraveg Pizza | E-commerce Pizza Solution</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="./assets/css/global.css" />
+    <link rel="stylesheet" href="./assets/css/menu.css" />
+
+    
+  </head>
+  <body>
+    <header class="header">
+      <nav class="navigation-bar">
+        <a class="logo" href="index.html" aria-label="Go to home section">
+          <img src="./assets/images/logo.png" alt="Logo" />
+        </a>
+        <button
+          class="nav-toggle"
+          type="button"
+          aria-label="Open menu"
+          aria-expanded="false"
+          aria-controls="primary-nav-menu"
+        >
+          <i class="fa-solid fa-bars" aria-hidden="true"></i>
+        </button>
+        <div class="nav-links" id="primary-nav-menu">
+          <ul>
+            <li>
+              <a class="nav-order-button" href="./pages/view/about.html"
+                >ABOUT</a
+              >
+            </li>
+            <li><a href="./pages/view/contact.html">CONTACT</a></li>
+            <li>
+              <a href="./pages/view/categories/categories.html">CATEGORIES</a>
+            </li>
+            <li><a href="./pages/view/menu/menu.html">MENU</a></li>
+          </ul>
+        </div>
+        <div class="nav-actions">
+          <a
+            class="cart-link"
+            href="./pages/view/cart.html"
+            aria-label="Shopping cart"
+          >
+            <i class="fa-solid fa-cart-shopping"></i>
+            <span>CART</span>
+          </a>
+          <a
+            class="wishlist-link"
+            href="./pages/view/wishlist.html"
+            aria-label="Wishlist"
+          >
+            <i class="fa-regular fa-heart"></i>
+            <span>WISHLIST</span>
+          </a>
+          <a
+            class="signup-button"
+            href="./pages/auth/login.html"
+            aria-label="Account"
+          >
+            <i class="fa-regular fa-user"></i>
+            <span>ORDER NOW</span>
+          </a>
+        </div>
+      </nav>
+    </header>
+
+    <main id="home">
+      <section class="hero-slider">
+        <div class="slider-container">
+          <div class="slider">
+            <div class="slide active">
+              <img
+                src="./assets/images/menu-hero-1.jpg"
+                alt="Delicious Veggie Pizza"
+              />
+              <div class="slide-caption">
+                <h2>Artisan Pizza, Fresh Ingredients</h2>
+                <p>Handcrafted with love daily</p>
+              </div>
+            </div>
+            <div class="slide">
+              <img
+                src="./assets/images/menu-hero-2.jpg"
+                alt="Cheese Overload"
+              />
+              <div class="slide-caption">
+                <h2>Cheese Overload</h2>
+                <p>Extra cheese, extra joy</p>
+              </div>
+            </div>
+            <div class="slide">
+              <img
+                src="./assets/images/menu-hero-3.jpg"
+                alt="Italian Classic"
+              />
+              <div class="slide-caption">
+                <h2>Italian Classic</h2>
+                <p>Authentic taste from Naples</p>
+              </div>
+            </div>
+            <div class="slide">
+              <img src="./assets/images/menu-hero-4.jpg" alt="Veggie Supreme" />
+              <div class="slide-caption">
+                <h2>Veggie Supreme</h2>
+                <p>Farm-fresh toppings</p>
+              </div>
+            </div>
+            <div class="slide">
+              <img
+                src="./assets/images/menu-hero-5.jpg"
+                alt="Spicy Pepperoni"
+              />
+              <div class="slide-caption">
+                <h2>Spicy Pepperoni</h2>
+                <p>Kick of heat you'll love</p>
+              </div>
+            </div>
+            <div class="slide">
+              <img src="./assets/images/menu-hero-6.jpg" alt="Family Combo" />
+              <div class="slide-caption">
+                <h2>Family Combo</h2>
+                <p>Share the happiness</p>
+              </div>
+            </div>
+          </div>
+
+          <button class="slider-btn prev-btn" aria-label="Previous slide">
+            <i class="fa-solid fa-chevron-left"></i>
+          </button>
+          <button class="slider-btn next-btn" aria-label="Next slide">
+            <i class="fa-solid fa-chevron-right"></i>
+          </button>
+
+          <div class="slider-dots"></div>
+        </div>
+      </section>
+
+      <section class="hero section-shell">
+        <div class="hero-visual">
+          <img
+            src="./assets/images/herosection.png"
+            alt="Hero section food image"
+          />
+        </div>
+        <div class="hero-overlay-actions">
+          <a
+            class="hero-action hero-action-order"
+            href="./pages/auth/login.html"
+            >Order now</a
+          >
+          <a
+            class="hero-action hero-action-menu"
+            href="./pages/view/menu/menu.html"
+            >See menu</a
+          >
+        </div>
+      </section>
+
+      <section class="section-shell categories-section" id="categories">
+        <h2 class="categories-title">
+          <a href="./pages/view/categories/categories.html"
+            >Top Categories</a
+          >
+        </h2>
+        <div class="category-strip">
+          <article class="category-item">
+            <img
+              src="./assets/images/delicious-pepperoni-olive-pizza_84443-77032.jpg"
+              alt="Classic pizza"
+            />
+            <h3>
+              <a href="./pages/view/menu/menu.html?category=classic&product=2#product-2">Classic Pizzas</a>
+            </h3>
+          </article>
+          <article class="category-item">
+            <img
+              src="./assets/images/isolated-pepperoni-pizza-with-salami_219193-8209.png"
+              alt="Signature pizza"
+            />
+            <h3>
+              <a href="./pages/view/menu/menu.html?category=signature&product=1#product-1">Signature Pizzas</a>
+            </h3>
+          </article>
+          <article class="category-item">
+            <img
+              src="./assets/images/delicious-whole-vegetable-pizza-loaded-with-colorful-toppings-like-broccoli-peppers-olives-sliced-ready-serve-against-black-background_84443-59206.jpg"
+              alt="Veggie pizza"
+            />
+            <h3><a href="./pages/view/menu/menu.html?category=veggie&product=4#product-4">Veggie Pizzas</a></h3>
+          </article>
+          <article class="category-item">
+            <img
+              src="./assets/images/isolated-pepeproni-pizza-with-jalapeno-white_219193-7105.png"
+              alt="Meat pizza"
+            />
+            <h3><a href="./pages/view/menu/menu.html?category=signature&product=7#product-7">Meat Pizzas</a></h3>
+          </article>
+          <article class="category-item">
+            <img
+              src="./assets/images/isolated-pepeproni-pizza-with-jalapeno-white_219193-7090.png"
+              alt="Cheese pizza"
+            />
+            <h3><a href="./pages/view/menu/menu.html?category=classic&product=6#product-6">Cheese Lovers</a></h3>
+          </article>
+          <article class="category-item">
+            <img
+              src="./assets/images/delicious-pepperoni-olives-pizza_632498-25492.jpg"
+              alt="Spicy pizza"
+            />
+            <h3><a href="./pages/view/menu/menu.html?category=spicy&product=3#product-3">Spicy Pizzas</a></h3>
+          </article>
+        </div>
+      </section>
+
+      <section class="section-shell about-section" id="about">
+        <div class="about-block">
+          <p class="about-kicker">
+            <a href="./pages/view/about.html">About Us</a>
+          </p>
+          <h2 class="about-title">Enjoy Quality Delicious Pizza.</h2>
+          <div class="about-layout">
+            <div class="about-media">
+              <video
+                class="about-media-video"
+                src="./assets/images/How to Make Perfect Pizza Sauce in Just 60 Seconds _ Making Pizza At Home.mp4.mp4"
+                controls
+                playsinline
+                preload="metadata"
+                aria-label="About video: How to make perfect pizza sauce"
+              >
+                Your browser does not support the video element.
+              </video>
+            </div>
+            <div class="about-copy">
+              <p class="about-description">
+                We serve delicious pizza made with fresh ingredients, hand
+                tossed dough, and a real passion for bold, satisfying flavor.
+                Whether you’re into classic favorites or curious to try
+                something new, there’s always something on the menu that just
+                hits right. Every slice is crafted to be fresh, rich, and full
+                of taste from our signature sauces to our carefully selected
+                toppings. But beyond the food, Ultaveg is about creating
+                moments.
+              </p>
+              <ul class="about-features">
+                <li>
+                  <span class="feature-icon"
+                    ><i class="fa-solid fa-utensils"></i
+                  ></span>
+                  <div>
+                    <h3>
+                      <a href="./pages/view/qualified-chef.html"
+                        >Qualified Chef</a
+                      >
+                    </h3>
+                    <p>Define the concept and theme of your food.</p>
+                  </div>
+                </li>
+                <li>
+                  <span class="feature-icon"
+                    ><i class="fa-solid fa-bell-concierge"></i
+                  ></span>
+                  <div>
+                    <h3>
+                      <a href="./pages/view/best-quality-food.html"
+                        >Best Quality Food</a
+                      >
+                    </h3>
+                    <p>Define the concept and theme of your food.</p>
+                  </div>
+                </li>
+                <li>
+                  <span class="feature-icon"
+                    ><i class="fa-solid fa-clock"></i
+                  ></span>
+                  <div>
+                    <h3>
+                      <a href="./pages/view/fast-friendly-service.html"
+                        >Fast, Friendly Service</a
+                      >
+                    </h3>
+                    <p>Fresh, high-quality ingredients used daily.</p>
+                  </div>
+                </li>
+              </ul>
+              <a class="about-contact" href="./pages/view/contact.html"
+                >Contact Us</a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-shell popular-foods" id="featured">
+        <div class="popular-foods-intro">
+          <p class="eyebrow popular-kicker">
+            <a href="./pages/view/categories/categories.html"
+              >Our Special Menu</a
+            >
+          </p>
+          <h2>Our Popular Foods</h2>
+          <p class="popular-summary">
+            Experience the richness of ingredients, precision cooking, and
+            freshly prepared meals inspired by the menu layout in your reference
+            design.
+          </p>
+        </div>
+      </section>
+
+      <section class="section-shell menu-preview" id="menu">
+          <article class="menu-row menu-row-pizza">
+            <div class="menu-list-card">
+              <h3><a href="./pages/view/menu/menu.html">Pizza</a></h3>
+              <ul>
+                <li>
+                  <div class="pasta-item-details">
+                    <strong>Vegetarian</strong>
+                    <span class="pasta-tags">Veg, Herb</span>
+                    <p class="pasta-description">
+                      Fresh vegetables, crispy crust, aromatic herbs, and light
+                      tomato sauce.
+                    </p>
+                  </div>
+                  <b>₦22,000.00</b>
+                </li>
+                <li>
+                  <div class="pasta-item-details">
+                    <strong>Vadiyadi</strong>
+                    <span class="pasta-tags">Spicy, Tomato</span>
+                    <p class="pasta-description">
+                      Bold spices, ripe tomatoes, and a kick of chili for the
+                      heat lovers.
+                    </p>
+                  </div>
+                  <b>₦20,000.00</b>
+                </li>
+                <li>
+                  <div class="pasta-item-details">
+                    <strong>Papparone</strong>
+                    <span class="pasta-tags">Mushroom, Cheese</span>
+                    <p class="pasta-description">
+                      Earthy mushrooms, melted cheese, and a savory blend of
+                      spices.
+                    </p>
+                  </div>
+                  <b>₦19,500.00</b>
+                </li>
+                <li>
+                  <div class="pasta-item-details">
+                    <strong>Marinara</strong>
+                    <span class="pasta-tags">Traditional, Olive</span>
+                    <p class="pasta-description">
+                      Classic Italian sauce with fresh garlic, olives, and
+                      traditional herbs.
+                    </p>
+                  </div>
+                  <b>₦21,200.00</b>
+                </li>
+                <li>
+                  <div class="pasta-item-details">
+                    <strong>Mushroom Truffle</strong>
+                    <span class="pasta-tags">Premium, Gourmet</span>
+                    <p class="pasta-description">
+                      Luxurious truffle oil, fresh mushrooms, and aged
+                      mozzarella cheese.
+                    </p>
+                  </div>
+                  <b>₦26,000.00</b>
+                </li>
+                <li>
+                  <div class="pasta-item-details">
+                    <strong>Margherita</strong>
+                    <span class="pasta-tags">Classic, Tomato</span>
+                    <p class="pasta-description">
+                      The timeless classic with fresh mozzarella, basil, and San
+                      Marzano tomatoes.
+                    </p>
+                  </div>
+                  <b>₦18,500.00</b>
+                </li>
+              </ul>
+            </div>
+            <div class="menu-visual-card">
+              <img
+                src="./assets/images/close-up-delicious-pizza.jpg"
+                alt="Pizza slice"
+              />
+            </div>
+          </article>
+
+          <article class="menu-row menu-row-dessert">
+            <div class="menu-list-card">
+              <h3>
+                <a href="./pages/view/categories/Dessert.html">Dessert</a>
+              </h3>
+              <ul>
+                <li>
+                  <div class="pasta-item-details">
+                    <strong>Tiramisu</strong>
+                    <span class="pasta-tags">Coffee, Cream</span>
+                    <p class="pasta-description">
+                      Layers of coffee-soaked ladyfingers and mascarpone cream
+                      with cocoa dust.
+                    </p>
+                  </div>
+                  <b>₦15,000.00</b>
+                </li>
+                <li>
+                  <div class="pasta-item-details">
+                    <strong>Bomboloni</strong>
+                    <span class="pasta-tags">Italian Donut</span>
+                    <p class="pasta-description">
+                      Traditional Italian donuts, fried to perfection, dusted
+                      with sugar.
+                    </p>
+                  </div>
+                  <b>₦13,500.00</b>
+                </li>
+                <li>
+                  <div class="pasta-item-details">
+                    <strong>Biscuit Cheesecake</strong>
+                    <span class="pasta-tags">Soft, Creamy</span>
+                    <p class="pasta-description">
+                      Smooth cheesecake on a buttery biscuit base with a rich
+                      filling.
+                    </p>
+                  </div>
+                  <b>₦14,250.00</b>
+                </li>
+                <li>
+                  <div class="pasta-item-details">
+                    <strong>Nutella Crepe</strong>
+                    <span class="pasta-tags">Sweet, Thin</span>
+                    <p class="pasta-description">
+                      Delicate crepes filled with Nutella and topped with fresh
+                      berries.
+                    </p>
+                  </div>
+                  <b>₦12,000.00</b>
+                </li>
+                <li>
+                  <div class="pasta-item-details">
+                    <strong>Kulfi Surprise Pizza</strong>
+                    <span class="pasta-tags">Fusion Dessert</span>
+                    <p class="pasta-description">
+                      An innovative fusion dessert combining kulfi with
+                      pizza-inspired presentation.
+                    </p>
+                  </div>
+                  <b>₦17,000.00</b>
+                </li>
+                <li>
+                  <div class="pasta-item-details">
+                    <strong>Neyyapam Roll</strong>
+                    <span class="pasta-tags">Warm, Caramel</span>
+                    <p class="pasta-description">
+                      Traditional Indian sweet rolled with caramel and roasted
+                      in ghee butter.
+                    </p>
+                  </div>
+                  <b>₦16,500.00</b>
+                </li>
+              </ul>
+            </div>
+            <div class="menu-visual-card">
+              <img
+                src="./assets/images/white-cake-poured-with-chocolate-decorated-with-oreo-tofifi-cookies_140725-9934.jpg"
+                alt="Dessert cupcake"
+              />
+            </div>
+          </article>
+
+          <article class="menu-row menu-row-pasta">
+            <div class="menu-list-card">
+              <h3><a href="./pages/view/categories/Pasta.html">Pasta</a></h3>
+              <ul>
+                <li>
+                  <div class="pasta-item-details">
+                    <strong>Carbonara</strong>
+                    <span class="pasta-tags">Cream, Bacon</span>
+                    <p class="pasta-description">
+                      Spaghetti, cream, black pepper, guanciale, pecorino,
+                      Romano Reggio parmigiano.
+                    </p>
+                  </div>
+                  <b>₦28,000.00</b>
+                </li>
+                <li>
+                  <div class="pasta-item-details">
+                    <strong>Mushroom Truffle</strong>
+                    <span class="pasta-tags">Vegan Option, Halal</span>
+                    <p class="pasta-description">
+                      Pink vodka sauce, fior de latte, parmigiano,
+                      stracciatella, fresh chilli, basil.
+                    </p>
+                  </div>
+                  <b>₦28,000.00</b>
+                </li>
+                <li>
+                  <div class="pasta-item-details">
+                    <strong>Seafood</strong>
+                    <span class="pasta-tags">Halal Option</span>
+                    <p class="pasta-description">
+                      Rigatoni, Hobsons Bay clams, mussels, Australian king
+                      prawns, South Australian rocking, poached in white wine
+                      and Mutti tomatoes.
+                    </p>
+                  </div>
+                  <b>₦38,000.00</b>
+                </li>
+                <li>
+                  <div class="pasta-item-details">
+                    <strong>Bolognese</strong>
+                    <span class="pasta-tags">Halal</span>
+                    <p class="pasta-description">
+                      Light and fluffy house-made gnocchi, cooked in our
+                      traditional meat sauce, topped with grated parmigiano
+                      cheese.
+                    </p>
+                  </div>
+                  <b>₦25,000.00</b>
+                </li>
+                <li>
+                  <div class="pasta-item-details">
+                    <strong>Agnolotti</strong>
+                    <span class="pasta-tags">Veg, Halal</span>
+                    <p class="pasta-description">
+                      Experience the authentic taste of Sicily with our
+                      selection of traditional dishes.
+                    </p>
+                  </div>
+                  <b>₦31,000.00</b>
+                </li>
+              </ul>
+            </div>
+            <div class="menu-visual-card">
+              <img
+                src="./assets/images/pasta-spaghetti-with-shrimps-sauce_1220-5072.jpg"
+                alt="Pasta bowl"
+              />
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section-shell feature-promo" id="features">
+          <div class="feature-copy">
+            <p class="eyebrow feature-kicker">
+              <a href="./pages/view/menu/menu.html">Feature</a>
+            </p>
+            <h2>Features That Make Every Slice Better</h2>
+            <p>
+              Every pizza and dish is prepared with balanced heat, fresh
+              ingredients, and premium presentation so the menu feels crafted
+              rather than generic.
+            </p>
+            <ul>
+              <li>Smoke Baked For The Perfect Crunch</li>
+              <li>Wide Variety Of Classic And Signature Pizzas</li>
+              <li>Customizable Toppings To Suit Every Taste</li>
+            </ul>
+            <a class="about-contact" href="#contact">Order Now</a>
+          </div>
+            <div class="award-card">
+              <strong>10+ Time</strong>
+              <span>Winning Award</span>
+            </div>
+            <div class="feature-gallery"><img
+              src="./assets/images/delicious-pizza-studio.jpg"
+              alt="Award winning pizza"
+            /></div>
+            <div class="feature-gallery">
+            <img
+              src="./assets/images/pizza-pizza-filled-with-tomatoes-salami-olives.jpg"
+              alt="Extra cheese pizza"
+            />
+          </div>
+      </section>
+
+      <section class="section-shell promo-strip">
+        <div class="promo-copy">
+          <p class="eyebrow">
+            <a href="./pages/view/menu/menu.html">Limited time</a>
+          </p>
+          <h2>Big flavor. Bigger appetite.</h2>
+          <p>
+            Drop into the weekend with a stacked menu, quick ordering, and a
+            layout that keeps the food front and center.
+          </p>
+        </div>
+        <img
+          src="./assets/images/pizza-pizza-filled-with-tomatoes-salami-olives.jpg"
+          alt="Pizza close-up"
+        />
+      </section>
+
+      <section class="section-shell testimonials" id="testimonials">
+        <div class="section-heading">
+          <p class="eyebrow">
+            <a href="./pages/view/testimonials.html">Testimonial</a>
+          </p>
+          <h2>What Our Customers Say</h2>
+        </div>
+        <div class="testimonial-slider" aria-live="polite">
+          <button
+            class="testimonial-control testimonial-prev"
+            type="button"
+            aria-label="Previous testimonial"
+          >
+            <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
+          </button>
+          <div class="testimonial-track">
+            <article class="testimonial-slide is-active">
+              <img
+                src="./assets/images/testimony.jpg"
+                alt="Customer portrait 1"
+              />
+              <p>
+                I've tried a lot of pizza places in town, but this one is by far
+                my favorite. The crust is perfectly baked, the toppings are
+                always fresh, and every bite bursts with flavor. The quality
+                really sets this place apart from the rest.
+              </p>
+              <h3>Blossom Lalita</h3>
+              <span>Food Specialist</span>
+            </article>
+            <article class="testimonial-slide">
+              <img
+                src="./assets/images/testimonial (1).jpg"
+                alt="Customer portrait 2"
+              />
+              <p>
+                Every order arrives hot and exactly how I requested it. The team
+                is friendly, fast, and the flavors are consistently amazing.
+                This has become our family pizza night favorite.
+              </p>
+              <h3>Amelia Jenny</h3>
+              <span>Frequent Customer</span>
+            </article>
+            <article class="testimonial-slide">
+              <img
+                src="./assets/images/testimonial (2).jpg"
+                alt="Customer portrait 3"
+              />
+              <p>
+                The menu variety is fantastic. Whether I want classic pepperoni
+                or something more creative, the taste is always on point. You
+                can tell they care about quality ingredients.
+              </p>
+              <h3>Luilan Rosey</h3>
+              <span>Food Blogger</span>
+            </article>
+            <article class="testimonial-slide">
+              <img
+                src="./assets/images/testimonial (3).jpg"
+                alt="Customer portrait 4"
+              />
+              <p>
+                I love how easy it is to order and how beautiful everything
+                looks when it arrives. Great portions, rich flavor, and crust
+                with just the right crunch. Highly recommended.
+              </p>
+              <h3>Chuckson Jr.</h3>
+              <span>Event Planner</span>
+            </article>
+            <article class="testimonial-slide">
+              <img
+                src="./assets/images/testimonial (4).jpg"
+                alt="Customer portrait 5"
+              />
+              <p>
+                From the first slice to the last, every pizza feels premium. The
+                ingredients taste fresh and the combinations are bold without
+                being overwhelming. Amazing job from the team.
+              </p>
+              <h3>Chris Princewill</h3>
+              <span>Chef</span>
+            </article>
+            <article class="testimonial-slide">
+              <img
+                src="./assets/images/testimonial (5).jpg"
+                alt="Customer portrait 6"
+              />
+              <p>
+                This is one of those places you keep coming back to. Quick
+                service, excellent value, and flavor that stays consistent every
+                time. Their signature pizzas are truly standout.
+              </p>
+              <h3>Roberts Manhunt</h3>
+              <span>Local Guide</span>
+            </article>
+          </div>
+          <button
+            class="testimonial-control testimonial-next"
+            type="button"
+            aria-label="Next testimonial"
+          >
+            <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+          </button>
+        </div>
+        <div
+          class="testimonial-dots"
+          role="tablist"
+          aria-label="Testimonial slides"
+        >
+          <button
+            class="is-active"
+            type="button"
+            aria-label="Go to testimonial 1"
+          ></button>
+          <button type="button" aria-label="Go to testimonial 2"></button>
+          <button type="button" aria-label="Go to testimonial 3"></button>
+          <button type="button" aria-label="Go to testimonial 4"></button>
+          <button type="button" aria-label="Go to testimonial 5"></button>
+          <button type="button" aria-label="Go to testimonial 6"></button>
+        </div>
+      </section>
+
+      <section class="section-shell menu-preview" id="menu">
+        <div class="section-heading section-heading-row">
+          <div>
+            <p class="eyebrow">
+              <a class="text-link" href="./pages/view/menu/menu.html"
+                >More to explore</a
+              >
+            </p>
+            <h2>Menu preview</h2>
+          </div>
+          <a class="text-link" href="#home">Back to top</a>
+        </div>
+        <div class="mini-menu-grid">
+          <article>
+            <img
+              src="./assets/images/close-up-delicious-pizza.jpg"
+              alt="Pizza slice"
+            /><span>Classic slice</span>
+          </article>
+          <article>
+            <img
+              src="./assets/images/side-view-pizza-with-slices-bell-pepper-pizza-slices-flour-board-cookware.jpg"
+              alt="Pizza on board"
+            /><span>Bell pepper</span>
+          </article>
+          <article>
+            <img
+              src="./assets/images/slice-crispy-pizza-with-meat-cheese.jpg"
+              alt="Crispy pizza slice"
+            /><span>Meat & cheese</span>
+          </article>
+          <article>
+            <img
+              src="./assets/images/pizza-with-extra-cheese-dried-herbs.jpg"
+              alt="Cheese pizza"
+            /><span>Extra cheese</span>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="section-shell footer-grid">
+        <div class="footer-brand">
+          <div class="footer-brand-head">
+            <img
+              class="footer-logo"
+              src="./assets/images/logo.png"
+              alt="Logo"
+            />
+            <h3>UltraVeg Pizza</h3>
+          </div>
+          <p>Bringing authentic Italian pizza to your table today.</p>
+        </div>
+        <div class="footer-column">
+          <h3>Contact</h3>
+          <ul class="footer-contact-list">
+            <li>
+              <i class="fa-solid fa-location-dot"></i
+              ><span>Redeemers University, Ede, Osun State, Nigeria.</span>
+            </li>
+            <li>
+              <i class="fa-solid fa-phone"></i><span>+234 706 4207 988</span>
+            </li>
+            <li>
+              <i class="fa-solid fa-envelope"></i
+              ><span>ultravegpizza@gmail.com</span>
+            </li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3>Opening Hours</h3>
+          <ul class="footer-days-list">
+            <li>Monday - Sunday</li>
+            <li>10:00 AM - 10:00 PM</li>
+          </ul>
+        </div>
+        <div class="footer-column footer-social-column">
+          <h3>Follow Us</h3>
+          <div class="footer-socials">
+            <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+            <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-copy section-shell">
+        © 2026 UltraVeg Pizza. All rights reserved. | Crafted with care
+      </div>
+    </footer>
+    <script type="module" src="./js/main.js"></script>
+
+    <script>
+      class HeroSlider {
+        constructor(container) {
+          this.container = container;
+          this.slides = Array.from(container.querySelectorAll(".slide"));
+          this.prevBtn = container.querySelector(".prev-btn");
+          this.nextBtn = container.querySelector(".next-btn");
+          this.dotsContainer = container.querySelector(".slider-dots");
+          this.currentIndex = 0;
+          this.totalSlides = this.slides.length;
+          this.autoPlayInterval = null;
+          this.autoPlayDelay = 5000;
+
+          this.init();
+        }
+
+        init() {
+          this.createDots();
+          this.updateSlides();
+          this.attachEvents();
+          this.startAutoPlay();
+        }
+
+        createDots() {
+          this.dotsContainer.innerHTML = "";
+          for (let i = 0; i < this.totalSlides; i++) {
+            const dot = document.createElement("div");
+            dot.classList.add("dot");
+            if (i === this.currentIndex) dot.classList.add("active");
+            dot.addEventListener("click", () => {
+              this.stopAutoPlay();
+              this.goToSlide(i);
+              this.startAutoPlay();
+            });
+            this.dotsContainer.appendChild(dot);
+          }
+        }
+
+        updateSlides() {
+          this.slides.forEach((slide, index) => {
+            slide.classList.toggle("active", index === this.currentIndex);
+          });
+
+          const dots = this.dotsContainer.querySelectorAll(".dot");
+          dots.forEach((dot, index) => {
+            dot.classList.toggle("active", index === this.currentIndex);
+          });
+        }
+
+        goToSlide(index) {
+          if (index < 0) index = this.totalSlides - 1;
+          if (index >= this.totalSlides) index = 0;
+          if (index === this.currentIndex) return;
+          this.currentIndex = index;
+          this.updateSlides();
+        }
+
+        nextSlide() {
+          this.goToSlide(this.currentIndex + 1);
+        }
+
+        prevSlide() {
+          this.goToSlide(this.currentIndex - 1);
+        }
+
+        attachEvents() {
+          if (this.prevBtn) {
+            this.prevBtn.addEventListener("click", (event) => {
+              event.stopPropagation();
+              this.stopAutoPlay();
+              this.prevSlide();
+              this.startAutoPlay();
+            });
+          }
+
+          if (this.nextBtn) {
+            this.nextBtn.addEventListener("click", (event) => {
+              event.stopPropagation();
+              this.stopAutoPlay();
+              this.nextSlide();
+              this.startAutoPlay();
+            });
+          }
+
+          this.container.addEventListener("mouseenter", () =>
+            this.stopAutoPlay(),
+          );
+          this.container.addEventListener("mouseleave", () =>
+            this.startAutoPlay(),
+          );
+
+          document.addEventListener("keydown", (event) => {
+            if (event.key === "ArrowLeft") {
+              this.stopAutoPlay();
+              this.prevSlide();
+              this.startAutoPlay();
+            }
+
+            if (event.key === "ArrowRight") {
+              this.stopAutoPlay();
+              this.nextSlide();
+              this.startAutoPlay();
+            }
+          });
+        }
+
+        startAutoPlay() {
+          if (this.autoPlayInterval) {
+            clearInterval(this.autoPlayInterval);
+          }
+
+          this.autoPlayInterval = setInterval(
+            () => this.nextSlide(),
+            this.autoPlayDelay,
+          );
+        }
+
+        stopAutoPlay() {
+          if (this.autoPlayInterval) {
+            clearInterval(this.autoPlayInterval);
+            this.autoPlayInterval = null;
+          }
+        }
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        const sliderContainer = document.querySelector(
+          ".hero-slider .slider-container",
+        );
+        if (sliderContainer) {
+          new HeroSlider(sliderContainer);
+        }
+      });
+    </script>
+
+    <script>
+      // =========================================
+      // SCROLL-TRIGGERED ANIMATIONS - TRIGGERS EVERY TIME
+      // =========================================
+
+      // Wait for DOM to load
+      document.addEventListener("DOMContentLoaded", function () {
+        // Add animation classes to elements
+        addAnimationClasses();
+
+        // Initialize scroll animations (triggers every time)
+        initScrollAnimations();
+
+        // Initial check
+        setTimeout(() => {
+          checkElementsInView();
+        }, 100);
+      });
+
+      // Add animation classes to elements
+      function addAnimationClasses() {
+        // Hero section
+        const heroOverlay = document.querySelector(".hero-overlay-actions");
+        if (heroOverlay)
+          heroOverlay.classList.add("animate-on-scroll", "hero-animate");
+
+        // Categories section
+        const categoriesSection = document.querySelector(".categories-section");
+        if (categoriesSection)
+          categoriesSection.classList.add(
+            "animate-on-scroll",
+            "categories-animate",
+          );
+
+        // Category items
+        const categoryItems = document.querySelectorAll(".category-item");
+        categoryItems.forEach((item) => {
+          item.classList.add("category-item-animate");
+        });
+
+        // About section
+        const aboutBlock = document.querySelector(".about-block");
+        if (aboutBlock)
+          aboutBlock.classList.add("animate-on-scroll", "about-animate");
+
+        const aboutMedia = document.querySelector(".about-media");
+        if (aboutMedia)
+          aboutMedia.classList.add("animate-on-scroll", "about-media-animate");
+
+        const aboutCopy = document.querySelector(".about-copy");
+        if (aboutCopy)
+          aboutCopy.classList.add("animate-on-scroll", "about-copy-animate");
+
+        // Popular foods title
+        const popularIntro = document.querySelector(".popular-foods-intro");
+        if (popularIntro)
+          popularIntro.classList.add(
+            "animate-on-scroll",
+            "popular-title-animate",
+          );
+
+        // Menu rows
+        const menuRows = document.querySelectorAll(".menu-row");
+        menuRows.forEach((row, index) => {
+          const listCard = row.querySelector(".menu-list-card");
+          const visualCard = row.querySelector(".menu-visual-card");
+
+          if (index % 2 === 0) {
+            if (listCard)
+              listCard.classList.add(
+                "animate-on-scroll",
+                "menu-row-left-animate",
+              );
+            if (visualCard)
+              visualCard.classList.add(
+                "animate-on-scroll",
+                "menu-row-right-animate",
+              );
+          } else {
+            if (listCard)
+              listCard.classList.add(
+                "animate-on-scroll",
+                "menu-row-right-animate",
+              );
+            if (visualCard)
+              visualCard.classList.add(
+                "animate-on-scroll",
+                "menu-row-left-animate",
+              );
+          }
+        });
+
+        // Feature promo
+        const featurePromo = document.querySelector(".feature-promo");
+        if (featurePromo)
+          featurePromo.classList.add(
+            "animate-on-scroll",
+            "feature-promo-animate",
+          );
+
+        // Feature gallery items
+        const galleryItems = document.querySelectorAll(".feature-gallery > *");
+        galleryItems.forEach((item) => {
+          item.classList.add("gallery-item-animate");
+        });
+
+        // Promo strip
+        const promoStrip = document.querySelector(".promo-strip");
+        if (promoStrip)
+          promoStrip.classList.add("animate-on-scroll", "promo-strip-animate");
+
+        // Testimonials section
+        const testimonials = document.querySelector(".testimonials");
+        if (testimonials)
+          testimonials.classList.add(
+            "animate-on-scroll",
+            "testimonials-animate",
+          );
+
+        // Menu preview
+        const menuPreview = document.querySelector(".menu-preview");
+        if (menuPreview)
+          menuPreview.classList.add(
+            "animate-on-scroll",
+            "menu-preview-animate",
+          );
+
+        // Mini menu grid items
+        const miniMenuItems = document.querySelectorAll(".mini-menu-grid article");
+        miniMenuItems.forEach((item) => {
+          item.classList.add("mini-menu-item-animate");
+        });
+
+        // Footer
+        const footer = document.querySelector(".footer");
+        if (footer) footer.classList.add("animate-on-scroll", "footer-animate");
+      }
+
+      // Initialize scroll animations - triggers EVERY time elements come into view
+      function initScrollAnimations() {
+        // Options for observer - removed unobserve to allow multiple triggers
+        const observerOptions = {
+          threshold: 0.2, // Trigger when 20% of element is visible
+          rootMargin: "0px 0px -20px 0px",
+        };
+
+        // Create intersection observer that triggers every time
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              // Add animated class when entering viewport
+              entry.target.classList.add("animated");
+
+              // Handle special cases
+              if (entry.target.classList.contains("categories-section")) {
+                const categoryItems = document.querySelectorAll(
+                  ".category-item-animate",
+                );
+                categoryItems.forEach((item) => {
+                  item.classList.add("animated");
+                });
+              }
+
+              if (entry.target.classList.contains("feature-promo")) {
+                const galleryItems = document.querySelectorAll(
+                  ".gallery-item-animate",
+                );
+                galleryItems.forEach((item) => {
+                  item.classList.add("animated");
+                });
+              }
+
+              if (entry.target.classList.contains("testimonials")) {
+                const activeSlide = document.querySelector(
+                  ".testimonial-slide.is-active",
+                );
+                if (
+                  activeSlide &&
+                  !activeSlide.classList.contains("animated")
+                ) {
+                  activeSlide.classList.add("animated");
+                }
+              }
+            } else {
+              // REMOVE animated class when leaving viewport - this enables re-animation
+              entry.target.classList.remove("animated");
+
+              // Handle special cases for removal
+              if (entry.target.classList.contains("categories-section")) {
+                const categoryItems = document.querySelectorAll(
+                  ".category-item-animate",
+                );
+                categoryItems.forEach((item) => {
+                  item.classList.remove("animated");
+                });
+              }
+
+              if (entry.target.classList.contains("feature-promo")) {
+                const galleryItems = document.querySelectorAll(
+                  ".gallery-item-animate",
+                );
+                galleryItems.forEach((item) => {
+                  item.classList.remove("animated");
+                });
+              }
+
+              if (entry.target.classList.contains("testimonials")) {
+                const allSlides =
+                  document.querySelectorAll(".testimonial-slide");
+                allSlides.forEach((slide) => {
+                  slide.classList.remove("animated");
+                });
+              }
+            }
+          });
+        }, observerOptions);
+
+        // Observe all elements with animate-on-scroll class
+        const elementsToObserve =
+          document.querySelectorAll(".animate-on-scroll");
+        elementsToObserve.forEach((element) => {
+          observer.observe(element);
+        });
+
+        // Also observe category items individually
+        const categoryItems = document.querySelectorAll(
+          ".category-item-animate",
+        );
+        categoryItems.forEach((item) => {
+          observer.observe(item);
+        });
+
+        // Observe gallery items
+        const galleryItems = document.querySelectorAll(".gallery-item-animate");
+        galleryItems.forEach((item) => {
+          observer.observe(item);
+        });
+
+        // Observe mini menu items
+        const miniMenuItems = document.querySelectorAll(".mini-menu-item-animate");
+        miniMenuItems.forEach((item) => {
+          observer.observe(item);
+        });
+      }
+
+      // Fallback function for checking elements in view
+      function checkElementsInView() {
+        const elements = document.querySelectorAll(
+          ".animate-on-scroll, .category-item-animate, .gallery-item-animate, .mini-menu-item-animate",
+        );
+
+        elements.forEach((element) => {
+          const rect = element.getBoundingClientRect();
+          const windowHeight =
+            window.innerHeight || document.documentElement.clientHeight;
+          const isInView = rect.top <= windowHeight - 80 && rect.bottom >= 50;
+
+          if (isInView) {
+            element.classList.add("animated");
+          } else {
+            element.classList.remove("animated");
+          }
+        });
+      }
+
+      // Listen for scroll events
+      let scrollTimeout;
+      window.addEventListener(
+        "scroll",
+        function () {
+          if (scrollTimeout) {
+            clearTimeout(scrollTimeout);
+          }
+          scrollTimeout = setTimeout(checkElementsInView, 30);
+        },
+        { passive: true },
+      );
+
+      // Check on load and resize
+      window.addEventListener("load", checkElementsInView);
+      window.addEventListener("resize", checkElementsInView);
+    </script>
+
+    <script>
+      // =========================================
+      // TESTIMONIAL SLIDER FUNCTIONALITY
+      // =========================================
+
+      document.addEventListener("DOMContentLoaded", function () {
+        // Testimonial slider functionality
+        const prevBtn = document.querySelector(".testimonial-prev");
+        const nextBtn = document.querySelector(".testimonial-next");
+        const dots = document.querySelectorAll(".testimonial-dots button");
+        const slides = document.querySelectorAll(".testimonial-slide");
+        let currentIndex = 0;
+
+        function showSlide(index) {
+          // Hide all slides
+          slides.forEach((slide) => {
+            slide.classList.remove("is-active");
+          });
+
+          // Remove active class from dots
+          dots.forEach((dot) => {
+            dot.classList.remove("is-active");
+          });
+
+          // Show current slide
+          if (slides[index]) {
+            slides[index].classList.add("is-active");
+          }
+
+          // Activate current dot
+          if (dots[index]) {
+            dots[index].classList.add("is-active");
+          }
+
+          currentIndex = index;
+        }
+
+        function nextSlide() {
+          let newIndex = currentIndex + 1;
+          if (newIndex >= slides.length) {
+            newIndex = 0;
+          }
+          showSlide(newIndex);
+        }
+
+        function prevSlide() {
+          let newIndex = currentIndex - 1;
+          if (newIndex < 0) {
+            newIndex = slides.length - 1;
+          }
+          showSlide(newIndex);
+        }
+
+        // Add event listeners if buttons exist
+        if (prevBtn) prevBtn.addEventListener("click", prevSlide);
+        if (nextBtn) nextBtn.addEventListener("click", nextSlide);
+
+        // Add dot click handlers
+        dots.forEach((dot, index) => {
+          dot.addEventListener("click", () => showSlide(index));
+        });
+
+        // Auto-advance slides every 5 seconds (optional)
+        let autoAdvance = setInterval(nextSlide, 5000);
+
+        // Pause auto-advance on hover
+        const sliderContainer = document.querySelector(".testimonial-slider");
+        if (sliderContainer) {
+          sliderContainer.addEventListener("mouseenter", () => {
+            clearInterval(autoAdvance);
+          });
+
+          sliderContainer.addEventListener("mouseleave", () => {
+            autoAdvance = setInterval(nextSlide, 5000);
+          });
+        }
+      });
+    </script>
+
+    <script>
+      // Add this to your existing main.js file
+
+      // Fixed navbar scroll effect
+      document.addEventListener("DOMContentLoaded", () => {
+        const header = document.querySelector(".header");
+        if (header) {
+          window.addEventListener("scroll", () => {
+            if (window.scrollY > 50) {
+              header.classList.add("scrolled");
+            } else {
+              header.classList.remove("scrolled");
+            }
+          });
+        }
+      });
+    </script>
+
+    <script src="./js/menu-view.js" type="module"></script>
+  </body>
+</html>

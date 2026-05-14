@@ -1,0 +1,49 @@
+services:
+  app:
+    build: .
+    ports:
+      - "5000:5000"
+    environment:
+      NODE_ENV: production
+      PORT: 5000
+      MONGO_URI: mongodb://mongo:27017/ecommerce
+      JWT_SECRET: change-me
+      JWT_REFRESH_SECRET: change-me-too
+      EMAIL_USER: change-me@example.com
+      EMAIL_PASS: change-me
+    depends_on:
+      mongo:
+        condition: service_healthy
+
+  test:
+    image: node:22-alpine
+    working_dir: /app
+    volumes:
+      - .:/app
+    environment:
+      NODE_ENV: test
+      PORT: 5000
+      MONGO_URI: mongodb://mongo:27017/ecommerce_test
+      JWT_SECRET: test-secret
+      JWT_REFRESH_SECRET: test-refresh-secret
+      EMAIL_USER: test@example.com
+      EMAIL_PASS: test-password
+    depends_on:
+      mongo:
+        condition: service_healthy
+    command: sh -c "npm install && npm run test:integration"
+
+  mongo:
+    image: mongo:7
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+    healthcheck:
+      test: [ "CMD", "mongosh", "--eval", "db.adminCommand('ping')" ]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  mongo-data:

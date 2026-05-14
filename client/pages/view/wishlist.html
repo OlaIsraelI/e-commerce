@@ -1,0 +1,531 @@
+﻿<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Wishlist - Ultraveg Pizza</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="../../assets/css/global.css" />
+    <link rel="stylesheet" href="../../assets/css/wishlist.css" />
+  </head>
+  <body>
+    <header class="header">
+      <nav class="navigation-bar">
+        <a class="logo" href="../../index.html" aria-label="Go to home section">
+          <img src="../../assets/images/logo.png" alt="Logo" />
+        </a>
+        <button
+          class="nav-toggle"
+          type="button"
+          aria-label="Open menu"
+          aria-expanded="false"
+          aria-controls="primary-nav-menu"
+        >
+          <i class="fa-solid fa-bars" aria-hidden="true"></i>
+        </button>
+        <div class="nav-links" id="primary-nav-menu">
+          <ul>
+            <li>
+              <a class="nav-order-button" href="../../pages/view/about.html"
+                >ABOUT</a
+              >
+            </li>
+            <li><a href="../../pages/view/contact.html">CONTACT</a></li>
+            <li>
+              <a href="../../pages/view/categories/categories.html"
+                >CATEGORIES</a
+              >
+            </li>
+            <li><a href="../../pages/view/menu/menu.html">MENU</a></li>
+          </ul>
+        </div>
+        <div class="nav-actions">
+          <a
+            class="cart-link"
+            href="../../pages/view/cart.html"
+            aria-label="Shopping cart"
+          >
+            <i class="fa-solid fa-cart-shopping"></i>
+            <span>CART</span>
+            <span class="cart-count" id="cartCount">0</span>
+          </a>
+          <a
+            class="wishlist-link"
+            href="../../pages/view/wishlist.html"
+            aria-label="Wishlist"
+          >
+            <i class="fa-regular fa-heart"></i>
+            <span>WISHLIST</span>
+            <span class="wishlist-count" id="wishlistCount">0</span>
+          </a>
+          <a class="signup-button" href="../../auth/login.html">
+            <i class="fa-regular fa-user"></i>
+            <span>ORDER NOW</span>
+          </a>
+        </div>
+      </nav>
+    </header>
+
+    <main class="wishlist-page">
+      <div class="wishlist-container">
+        <!-- Hero Banner -->
+        <div class="wishlist-hero">
+          <h1>
+            <i class="fa-regular fa-heart"></i>
+            My Wishlist
+          </h1>
+          <p>
+            Dreaming of pizza? Save your favorites here and order them anytime.
+            We'll notify you about price drops and special deals!
+          </p>
+          <div class="wishlist-stats">
+            <div class="stat-badge">
+              <strong id="wishlistItemCount">0</strong> items saved
+            </div>
+            <div class="stat-badge">
+              <strong id="totalSavingsStat">â‚¦0</strong> total savings
+            </div>
+          </div>
+        </div>
+
+        <!-- Wishlist Items Grid -->
+        <div id="wishlistItemsGrid" class="wishlist-grid">
+          <!-- Dynamic content will be loaded here -->
+        </div>
+
+        <!-- Summary Section (shown only when items exist) -->
+        <div
+          id="wishlistSummary"
+          class="wishlist-summary-section"
+          style="display: none"
+        >
+          <div class="summary-flex">
+            <div class="total-savings">
+              <div class="label">ðŸŽ‰ You're Saving</div>
+              <div class="amount" id="totalSavingsAmount">â‚¦0</div>
+            </div>
+            <div class="wishlist-grand-total">
+              <div class="label">Wishlist Value</div>
+              <div class="amount" id="wishlistGrandTotal">â‚¦0</div>
+            </div>
+            <div class="action-buttons">
+              <a href="menu.html" class="btn-secondary-custom">
+                <i class="fa-solid fa-arrow-left"></i> Browse More
+              </a>
+              <button id="addAllToCartBtn" class="btn-primary-custom">
+                <i class="fa-solid fa-cart-shopping"></i> Add All to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Recommendations Section -->
+        <div class="recommendations-section">
+          <h3>You Might Also Love</h3>
+          <div class="recommendations-grid">
+            <a href="menu.html" class="rec-card">
+              <img
+                src="../../assets/images/delicious-whole-vegetable-pizza-loaded-with-colorful-toppings-like-broccoli-peppers-olives-sliced-ready-serve-against-black-background_84443-59206.avif"
+                alt="Spicy Pepperoni"
+              />
+              <div class="rec-card-content">
+                <h4>Spicy Pepperoni Blast</h4>
+                <span class="rec-price">â‚¦23,500</span>
+              </div>
+            </a>
+            <a href="menu.html" class="rec-card">
+              <img
+                src="../../assets/images/pizza-with-extra-cheese-dried-herbs.jpg"
+                alt="Cheese Lovers"
+              />
+              <div class="rec-card-content">
+                <h4>Cheese Lovers Paradise</h4>
+                <span class="rec-price">â‚¦21,000</span>
+              </div>
+            </a>
+            <a href="menu.html" class="rec-card">
+              <img
+                src="../../assets/images/delicious-pepperoni-olive-pizza_84443-77032.jpg"
+                alt="Mediterranean"
+              />
+              <div class="rec-card-content">
+                <h4>Mediterranean Delight</h4>
+                <span class="rec-price">â‚¦24,000</span>
+              </div>
+            </a>
+            <a href="menu.html" class="rec-card">
+              <img
+                src="../../assets/images/pizza-pizza-filled-with-tomatoes-salami-olives.jpg"
+                alt="BBQ Chicken"
+              />
+              <div class="rec-card-content">
+                <h4>BBQ Chicken Supreme</h4>
+                <span class="rec-price">â‚¦25,500</span>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="section-shell footer-grid">
+        <div class="footer-brand">
+          <div class="footer-brand-head">
+            <img
+              class="footer-logo"
+              src="../../assets/images/logo.png"
+              alt="Logo"
+            />
+            <h3>UltraVeg Pizza</h3>
+          </div>
+          <p>Bringing authentic Italian pizza to your table today.</p>
+        </div>
+        <div class="footer-column">
+          <h3>Contact</h3>
+          <ul class="footer-contact-list">
+            <li>
+              <i class="fa-solid fa-location-dot"></i
+              ><span>Redeemers University, Ede, Osun State, Nigeria.</span>
+            </li>
+            <li>
+              <i class="fa-solid fa-phone"></i><span>+234 706 4207 988</span>
+            </li>
+            <li>
+              <i class="fa-solid fa-envelope"></i
+              ><span>ultravegpizza@gmail.com</span>
+            </li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3>Opening Hours</h3>
+          <ul class="footer-days-list">
+            <li>Monday - Sunday</li>
+            <li>10:00 AM - 10:00 PM</li>
+          </ul>
+        </div>
+        <div class="footer-column footer-social-column">
+          <h3>Follow Us</h3>
+          <div class="footer-socials">
+            <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+            <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-copy section-shell">
+        Â© 2026 UltraVeg Pizza. All rights reserved. | Crafted with care
+      </div>
+    </footer>
+
+    <script>
+      // Wishlist JavaScript - Full functionality
+      let wishlist = [];
+      let cart = [];
+
+      // Sample pizza data with images and pricing
+      const samplePizzas = [
+        {
+          id: 1,
+          name: "Cheese Overload",
+          category: "Pizza",
+          price: 22000,
+          oldPrice: 25000,
+          image: "../../assets/images/pizza-with-extra-cheese-dried-herbs.jpg",
+          rating: 5,
+        },
+        {
+          id: 2,
+          name: "Italian Margherita",
+          category: "Pizza",
+          price: 18000,
+          oldPrice: 21000,
+          image: "../../assets/images/margherita.jpg",
+          rating: 4.8,
+        },
+        {
+          id: 3,
+          name: "Spicy Pepperoni",
+          category: "Pizza",
+          price: 23500,
+          oldPrice: 27000,
+          image:
+            "../../assets/images/delicious-pepperoni-olive-pizza_84443-77032.jpg",
+          rating: 4.9,
+        },
+        {
+          id: 4,
+          name: "Veggie Supreme",
+          category: "Pizza",
+          price: 22000,
+          oldPrice: 25000,
+          image:
+            "../../assets/images/delicious-whole-vegetable-pizza-loaded-with-colorful-toppings-like-broccoli-peppers-olives-sliced-ready-serve-against-black-background_84443-59206.avif",
+          rating: 4.7,
+        },
+        {
+          id: 5,
+          name: "BBQ Chicken",
+          category: "Pizza",
+          price: 25500,
+          oldPrice: 29000,
+          image:
+            "../../assets/images/pizza-pizza-filled-with-tomatoes-salami-olives.jpg",
+          rating: 4.9,
+        },
+        {
+          id: 6,
+          name: "Four Cheese",
+          category: "Pizza",
+          price: 24000,
+          oldPrice: 27500,
+          image: "../../assets/images/delicious-whole-vegetable-pizza.jpg",
+          rating: 4.8,
+        },
+      ];
+
+      function loadWishlist() {
+        const saved = localStorage.getItem("ultraveg_wishlist");
+        if (saved) {
+          wishlist = JSON.parse(saved);
+        }
+        renderWishlist();
+        updateWishlistCount();
+      }
+
+      function saveWishlist() {
+        localStorage.setItem("ultraveg_wishlist", JSON.stringify(wishlist));
+        updateWishlistCount();
+      }
+
+      function loadCart() {
+        const saved = localStorage.getItem("ultraveg_cart");
+        if (saved) {
+          cart = JSON.parse(saved);
+        }
+        updateCartCount();
+      }
+
+      function saveCart() {
+        localStorage.setItem("ultraveg_cart", JSON.stringify(cart));
+        updateCartCount();
+      }
+
+      function updateCartCount() {
+        const total = cart.reduce((sum, i) => sum + i.quantity, 0);
+        const countEl = document.getElementById("cartCount");
+        if (countEl) countEl.textContent = total;
+      }
+
+      function updateWishlistCount() {
+        const countEl = document.getElementById("wishlistCount");
+        if (countEl) countEl.textContent = wishlist.length;
+      }
+
+      function calculateWishlistTotal() {
+        return wishlist.reduce((sum, item) => sum + item.price, 0);
+      }
+
+      function calculateTotalSavings() {
+        return wishlist.reduce(
+          (sum, item) => sum + ((item.oldPrice || item.price) - item.price),
+          0,
+        );
+      }
+
+      function showToast(message, type = "success") {
+        const toast = document.createElement("div");
+        toast.className = "toast-message";
+        toast.innerHTML = `<i class="fa-solid fa-${type === "success" ? "check-circle" : "heart"}"></i> ${message}`;
+        document.body.appendChild(toast);
+        setTimeout(() => toast.remove(), 2500);
+      }
+
+      function renderWishlist() {
+        const container = document.getElementById("wishlistItemsGrid");
+        const summarySection = document.getElementById("wishlistSummary");
+        const itemCountEl = document.getElementById("wishlistItemCount");
+        const totalSavingsStat = document.getElementById("totalSavingsStat");
+        const totalSavingsAmount =
+          document.getElementById("totalSavingsAmount");
+        const grandTotalEl = document.getElementById("wishlistGrandTotal");
+
+        if (!wishlist.length) {
+          container.innerHTML = `
+            <div class="empty-wishlist">
+              <i class="fa-regular fa-heart"></i>
+              <h3>Your Wishlist is Empty</h3>
+              <p>Save your favorite pizzas here for quick ordering later.</p>
+              <button id="addSampleWishlistBtn" class="btn-primary-custom" style="background:#2f6f52;">
+                <i class="fa-solid fa-plus"></i> Add Sample Items
+              </button>
+            </div>
+          `;
+          summarySection.style.display = "none";
+          if (itemCountEl) itemCountEl.textContent = "0";
+          if (totalSavingsStat) totalSavingsStat.textContent = "â‚¦0";
+
+          const sampleBtn = document.getElementById("addSampleWishlistBtn");
+          if (sampleBtn) {
+            sampleBtn.addEventListener("click", () => addSampleItems());
+          }
+          return;
+        }
+
+        container.innerHTML = wishlist
+          .map(
+            (item) => `
+          <div class="wishlist-item-card" data-id="${item.id}">
+            <div class="favorite-badge">
+              <i class="fa-solid fa-heart"></i>
+            </div>
+            <div class="wishlist-item-image">
+              <img src="${item.image}" alt="${item.name}">
+              ${item.oldPrice ? `<span class="discount-badge">Save ${Math.round(((item.oldPrice - item.price) / item.oldPrice) * 100)}%</span>` : ""}
+            </div>
+            <div class="wishlist-item-content">
+              <h3 class="wishlist-item-title">${item.name}</h3>
+              <div class="wishlist-item-category">
+                <i class="fa-solid fa-tag"></i> ${item.category}
+                <span>${item.rating}</span>
+              </div>
+              <div class="price-section">
+                <span class="current-price">â‚¦${item.price.toLocaleString()}</span>
+                ${item.oldPrice ? `<span class="old-price">â‚¦${item.oldPrice.toLocaleString()}</span>` : ""}
+                ${item.oldPrice ? `<span class="savings">Save â‚¦${(item.oldPrice - item.price).toLocaleString()}</span>` : ""}
+              </div>
+              <div class="wishlist-actions">
+                <button class="move-to-cart-btn" onclick="moveToCart(${item.id})">
+                  <i class="fa-solid fa-cart-plus"></i> Add to Cart
+                </button>
+                <button class="remove-wishlist-btn" onclick="removeFromWishlist(${item.id})">
+                  <i class="fa-solid fa-trash"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        `,
+          )
+          .join("");
+
+        const total = calculateWishlistTotal();
+        const savings = calculateTotalSavings();
+
+        if (itemCountEl) itemCountEl.textContent = wishlist.length;
+        if (totalSavingsStat)
+          totalSavingsStat.textContent = `â‚¦${savings.toLocaleString()}`;
+        if (totalSavingsAmount)
+          totalSavingsAmount.textContent = `â‚¦${savings.toLocaleString()}`;
+        if (grandTotalEl)
+          grandTotalEl.textContent = `â‚¦${total.toLocaleString()}`;
+
+        summarySection.style.display = "block";
+      }
+
+      window.moveToCart = function (productId) {
+        const item = wishlist.find((i) => i.id === productId);
+        if (item) {
+          const existingCartItem = cart.find((i) => i.id === productId);
+          if (existingCartItem) {
+            existingCartItem.quantity += 1;
+          } else {
+            cart.push({
+              id: item.id,
+              name: item.name,
+              price: item.price,
+              quantity: 1,
+              image: item.image,
+              category: item.category,
+            });
+          }
+          saveCart();
+
+          // Remove from wishlist
+          wishlist = wishlist.filter((i) => i.id !== productId);
+          saveWishlist();
+          renderWishlist();
+
+          showToast(`${item.name} added to cart!`, "success");
+        }
+      };
+
+      window.removeFromWishlist = function (productId) {
+        const item = wishlist.find((i) => i.id === productId);
+        wishlist = wishlist.filter((i) => i.id !== productId);
+        saveWishlist();
+        renderWishlist();
+        showToast(`${item?.name || "Item"} removed from wishlist`, "success");
+      };
+
+      function addAllToCart() {
+        if (wishlist.length === 0) return;
+
+        wishlist.forEach((item) => {
+          const existingCartItem = cart.find((i) => i.id === item.id);
+          if (existingCartItem) {
+            existingCartItem.quantity += 1;
+          } else {
+            cart.push({
+              id: item.id,
+              name: item.name,
+              price: item.price,
+              quantity: 1,
+              image: item.image,
+              category: item.category,
+            });
+          }
+        });
+
+        saveCart();
+        showToast(`${wishlist.length} items added to your cart!`, "success");
+
+        // Optional: Clear wishlist after adding all?
+        // Uncomment if you want to clear wishlist after adding all to cart
+        // wishlist = [];
+        // saveWishlist();
+        // renderWishlist();
+      }
+
+      function addSampleItems() {
+        // Add unique items that aren't already in wishlist
+        const existingIds = new Set(wishlist.map((i) => i.id));
+        const newItems = samplePizzas
+          .filter((p) => !existingIds.has(p.id))
+          .slice(0, 4);
+
+        if (newItems.length === 0) {
+          showToast("All sample items already in wishlist!", "success");
+          return;
+        }
+
+        wishlist.push(...newItems);
+        saveWishlist();
+        renderWishlist();
+        showToast(
+          `${newItems.length} sample items added to wishlist!`,
+          "success",
+        );
+      }
+
+      // Event listeners
+      document.addEventListener("DOMContentLoaded", () => {
+        loadWishlist();
+        loadCart();
+
+        const addAllBtn = document.getElementById("addAllToCartBtn");
+        if (addAllBtn) {
+          addAllBtn.addEventListener("click", addAllToCart);
+        }
+      });
+    </script>
+      <script type="module" src="../../js/menu-view.js"></script>
+  </body>
+</html>
+

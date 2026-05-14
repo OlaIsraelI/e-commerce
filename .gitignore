@@ -1,0 +1,7 @@
+node_modules/
+.env
+example.txt/
+e-commerce.txt/
+testimony for website.txt/
+build/
+dist/

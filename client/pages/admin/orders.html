@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Admin - Orders</title>
+    <link rel="stylesheet" href="../../assets/css/global.css" />
+    <style>
+      .admin-shell {
+        max-width: 900px;
+        margin: 36px auto;
+        padding: 0 20px;
+      }
+      .orders-list {
+        display: grid;
+        gap: 12px;
+      }
+      .order-card {
+        background: var(--surface);
+        border-radius: 12px;
+        padding: 12px;
+        box-shadow: var(--shadow);
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+      }
+      .order-meta {
+        font-size: 13px;
+        color: var(--muted);
+      }
+    </style>
+  </head>
+  <body>
+    <main class="admin-shell">
+      <section>
+        <h1>Orders</h1>
+        <p>Recent orders placed by customers.</p>
+        <div id="orders" class="orders-list"></div>
+      </section>
+    </main>
+
+    <script type="module" src="../../js/features/admin/orders.js"></script>
+  </body>
+</html>

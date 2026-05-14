@@ -1,0 +1,759 @@
+﻿<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Menu - Ultraveg Pizza | Artisan Pizza Delivered</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="../../../assets/css/global.css" />
+
+    <link rel="stylesheet" href="../../../assets/css/menu-mobile.css" />
+  </head>
+  <body>
+    <header class="header">
+      <nav class="navigation-bar">
+        <a
+          class="logo"
+          href="../../../index.html"
+          aria-label="Go to home section"
+        >
+          <img src="../../../assets/images/logo.png" alt="Logo" />
+        </a>
+        <button class="nav-toggle" type="button" aria-label="Open menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+        <div class="nav-links" id="primary-nav-menu">
+          <ul>
+            <li><a href="../about.html">ABOUT</a></li>
+            <li><a href="../contact.html">CONTACT</a></li>
+            <li><a href="../categories/categories.html">CATEGORIES</a></li>
+            <li><a class="is-current" href="./menu.html">MENU</a></li>
+          </ul>
+        </div>
+        <div class="nav-actions">
+          <a class="cart-link" href="../cart.html" aria-label="Shopping cart">
+            <i class="fa-solid fa-cart-shopping"></i>
+            <span>CART</span>
+            <span class="cart-count" id="cartCount">0</span>
+          </a>
+          <a
+            class="wishlist-link"
+            href="../wishlist.html"
+            aria-label="Wishlist"
+          >
+            <i class="fa-regular fa-heart"></i>
+            <span>WISHLIST</span>
+            <span class="wishlist-count" id="wishlistCount">0</span>
+          </a>
+          <a
+            class="signup-button"
+            href="../../auth/login.html"
+            aria-label="Account"
+          >
+            <i class="fa-regular fa-user"></i>
+            <span>ORDER NOW</span>
+          </a>
+        </div>
+      </nav>
+    </header>
+
+    <main class="menu-page">
+      <!-- Hero Slider Section -->
+      <section class="hero-slider">
+        <div class="slider-container">
+          <div class="slider">
+            <div class="slide active">
+              <img
+                src="../../../assets/images/menu-hero-1.jpg"
+                alt="Delicious Veggie Pizza"
+              />
+              <div class="slide-caption">
+                <h2>Artisan Pizza, Fresh Ingredients</h2>
+                <p>Handcrafted with love daily</p>
+              </div>
+            </div>
+            <div class="slide">
+              <img
+                src="../../../assets/images/menu-hero-2.jpg"
+                alt="Cheese Overload"
+              />
+              <div class="slide-caption">
+                <h2>Cheese Overload</h2>
+                <p>Extra cheese, extra joy</p>
+              </div>
+            </div>
+            <div class="slide">
+              <img
+                src="../../../assets/images/menu-hero-3.jpg"
+                alt="Italian Classic"
+              />
+              <div class="slide-caption">
+                <h2>Italian Classic</h2>
+                <p>Authentic taste from Naples</p>
+              </div>
+            </div>
+            <div class="slide">
+              <img
+                src="../../../assets/images/menu-hero-4.jpg"
+                alt="Veggie Supreme"
+              />
+              <div class="slide-caption">
+                <h2>Veggie Supreme</h2>
+                <p>Farm-fresh toppings</p>
+              </div>
+            </div>
+            <div class="slide">
+              <img
+                src="../../../assets/images/menu-hero-5.jpg"
+                alt="Spicy Pepperoni"
+              />
+              <div class="slide-caption">
+                <h2>Spicy Pepperoni</h2>
+                <p>Kick of heat you'll love</p>
+              </div>
+            </div>
+            <div class="slide">
+              <img
+                src="../../../assets/images/menu-hero-6.jpg"
+                alt="Family Combo"
+              />
+              <div class="slide-caption">
+                <h2>Family Combo</h2>
+                <p>Share the happiness</p>
+              </div>
+            </div>
+          </div>
+          <button class="slider-btn prev-btn">
+            <i class="fa-solid fa-chevron-left"></i>
+          </button>
+          <button class="slider-btn next-btn">
+            <i class="fa-solid fa-chevron-right"></i>
+          </button>
+          <div class="slider-dots"></div>
+        </div>
+      </section>
+
+      <!-- Menu Section -->
+      <div class="menu-container">
+        <div class="menu-header">
+          <span class="badge">OUR SELECTION</span>
+          <h1>Awakens Your Appetite</h1>
+          <p>
+            Handcrafted pizzas made with the freshest ingredients, baked to
+            perfection in a wood-fired oven.
+          </p>
+        </div>
+
+        <!-- Category Filters -->
+        <div class="category-filters">
+          <button class="filter-btn" data-category="all"><a href="../categories/categories.html">            Top Categories
+          </button></a>
+          <button class="filter-btn active" data-category="all">
+            All Pizzas
+          </button>
+          <button class="filter-btn" data-category="signature">
+            Signature
+          </button>
+          <button class="filter-btn" data-category="classic">Classic</button>
+          <button class="filter-btn" data-category="veggie"> Veggie</button>
+          <button class="filter-btn" data-category="spicy">Spicy</button>
+        </div>
+
+        <!-- Products Grid -->
+        <div id="productsGrid" class="products-grid"></div>
+      </div>
+
+              <div class="popular-products">
+          <h2>You May Also Like</h2>
+          <div class="popular-grid">
+            <a href="menu.html" class="popular-card">
+              <img
+                src="../../assets/images/delicious-whole-vegetable-pizza.jpg"
+                alt="Veggie Pizza"
+              />
+              <div class="popular-card-content">
+                <h4>Veggie Supreme</h4>
+                <span class="old-price">₦25,000</span>
+                <span class="new-price"> ₦22,000</span>
+              </div>
+            </a>
+            <a href="menu.html" class="popular-card">
+              <img
+                src="../../assets/images/pizza-with-extra-cheese.jpg"
+                alt="Cheese Pizza"
+              />
+              <div class="popular-card-content">
+                <h4>Cheese Overload</h4>
+                <span class="old-price">₦24,000</span>
+                <span class="new-price"> ₦22,000</span>
+              </div>
+            </a>
+            <a href="menu.html" class="popular-card">
+              <img
+                src="../../assets/images/pepperoni-pizza.jpg"
+                alt="Pepperoni"
+              />
+              <div class="popular-card-content">
+                <h4>Spicy Pepperoni</h4>
+                <span class="old-price">₦26,000</span>
+                <span class="new-price"> ₦23,000</span>
+              </div>
+            </a>
+            <a href="menu.html" class="popular-card">
+              <img src="../../assets/images/margherita.jpg" alt="Margherita" />
+              <div class="popular-card-content">
+                <h4>Italian Margherita</h4>
+                <span class="old-price">₦20,000</span>
+                <span class="new-price"> ₦18,000</span>
+              </div>
+            </a>
+          </div>
+        </div>
+    </main>
+
+    <footer class="footer" id="contact">
+      <div class="section-shell footer-grid">
+        <div class="footer-brand">
+          <div class="footer-brand-head">
+            <img
+              class="footer-logo"
+              src="../../../assets/images/logo.png"
+              alt="Logo"
+            />
+            <h3>UltraVeg Pizza</h3>
+          </div>
+          <p>Bringing authentic Italian pizza to your table today.</p>
+        </div>
+        <div class="footer-column">
+          <h3>Contact</h3>
+          <ul class="footer-contact-list">
+            <li>
+              <i class="fa-solid fa-location-dot"></i
+              ><span>Redeemers University, Ede, Osun State, Nigeria.</span>
+            </li>
+            <li>
+              <i class="fa-solid fa-phone"></i><span>+234 706 4207 988</span>
+            </li>
+            <li>
+              <i class="fa-solid fa-envelope"></i
+              ><span>ultravegpizza@gmail.com</span>
+            </li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3>Opening Hours</h3>
+          <ul class="footer-days-list">
+            <li>Monday - Sunday</li>
+            <li>10:00 AM - 10:00 PM</li>
+          </ul>
+        </div>
+        <div class="footer-column footer-social-column">
+          <h3>Follow Us</h3>
+          <div class="footer-socials">
+            <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+            <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-copy section-shell">
+          Â© 2026 UltraVeg Pizza. All rights reserved. | Crafted with care
+      </div>
+    </footer>
+
+    <script>
+      // Product Data
+      const products = [
+        {
+          id: 1,
+          name: "Cheese Overload",
+          category: "signature",
+          price: 22000,
+          oldPrice: 25000,
+          image:
+            "../../../assets/images/pizza-with-extra-cheese-dried-herbs.jpg",
+          rating: 4.9,
+          description:
+            "Four cheese blend with mozzarella, cheddar, parmesan, and gouda",
+        },
+        {
+          id: 2,
+          name: "Italian Margherita",
+          category: "classic",
+          price: 18000,
+          oldPrice: 21000,
+          image:
+            "../../../assets/images/freshly-italian-pizza-with-mozzarella-cheese-slice-generative-ai_188544-12347.jpg",
+          rating: 4.8,
+          description: "Fresh tomatoes, basil, and mozzarella on thin crust",
+        },
+        {
+          id: 3,
+          name: "Spicy Pepperoni",
+          category: "spicy",
+          price: 23500,
+          oldPrice: 27000,
+          image:
+            "../../../assets/images/delicious-pepperoni-olive-pizza_84443-77032.jpg",
+          rating: 4.9,
+          description: "Loaded with pepperoni, jalapeÃ±os, and spicy sausage",
+        },
+        {
+          id: 4,
+          name: "Veggie Supreme",
+          category: "veggie",
+          price: 22000,
+          oldPrice: 25000,
+          image:
+            "../../../assets/images/delicious-whole-vegetable-pizza-loaded-with-colorful-toppings-like-broccoli-peppers-olives-sliced-ready-serve-against-black-background_84443-59206.avif",
+          rating: 4.7,
+          description: "Bell peppers, mushrooms, olives, onions, and corn",
+        },
+        {
+          id: 5,
+          name: "BBQ Chicken",
+          category: "signature",
+          price: 25500,
+          oldPrice: 29000,
+          image:
+            "../../../assets/images/pizza-pizza-filled-with-tomatoes-salami-olives.jpg",
+          rating: 4.9,
+          description: "Grilled chicken, BBQ sauce, red onions, and cilantro",
+        },
+        {
+          id: 6,
+          name: "Four Cheese",
+          category: "classic",
+          price: 24000,
+          oldPrice: 27500,
+          image:
+            "../../../assets/images/pizza-with-extra-cheese-dried-herbs.jpg",
+          rating: 4.8,
+          description: "Mozzarella, provolone, fontina, and parmesan",
+        },
+        {
+          id: 7,
+          name: "Meat Lovers",
+          category: "signature",
+          price: 26500,
+          oldPrice: 30000,
+          image:
+            "../../../assets/images/delicious-pepperoni-olive-pizza_84443-77032.jpg",
+          rating: 4.9,
+          description: "Pepperoni, sausage, bacon, ham, and beef",
+        },
+        {
+          id: 8,
+          name: "Pesto Garden",
+          category: "veggie",
+          price: 21500,
+          oldPrice: 24000,
+          image:
+            "../../../assets/images/delicious-whole-vegetable-pizza-loaded-with-colorful-toppings-like-broccoli-peppers-olives-sliced-ready-serve-against-black-background_84443-59206.jpg",
+          rating: 4.7,
+          description:
+            "Pesto base with zucchini, eggplant, and cherry tomatoes",
+        },
+        {
+          id: 9,
+          name: "Diavola",
+          category: "spicy",
+          price: 24500,
+          oldPrice: 28000,
+          image:
+            "../../../assets/images/delicious-whole-vegetable-pizza-loaded-with-colorful-toppings-like-broccoli-peppers-olives-sliced-ready-serve-against-black-background_84443-59206.avif",
+          rating: 4.8,
+          description: "Spicy salami, chili flakes, and fresh basil",
+        },
+        {
+          id: 10,
+          name: "Hawaiian",
+          category: "classic",
+          price: 21000,
+          oldPrice: 23500,
+          image:
+            "../../../assets/images/pizza-pizza-filled-with-tomatoes-salami-olives.jpg",
+          rating: 4.6,
+          description: "Ham, pineapple, and mozzarella cheese",
+        },
+        {
+          id: 11,
+          name: "Truffle Mushroom",
+          category: "signature",
+          price: 28500,
+          oldPrice: 32000,
+          image:
+            "../../../assets/images/pizza-with-extra-cheese-dried-herbs.jpg",
+          rating: 5.0,
+          description: "Truffle oil, wild mushrooms, and ricotta",
+        },
+        {
+          id: 12,
+          name: "Buffalo Chicken",
+          category: "spicy",
+          price: 23800,
+          oldPrice: 26500,
+          image:
+            "../../../assets/images/delicious-pepperoni-olive-pizza_84443-77032.jpg",
+          rating: 4.8,
+          description: "Spicy buffalo chicken, ranch, and celery",
+        },
+      ];
+
+      let cart = [];
+      let wishlist = [];
+      let currentCategory = "all";
+
+      // Load saved data
+      function loadData() {
+        const savedCart = localStorage.getItem("ultraveg_cart");
+        if (savedCart) cart = JSON.parse(savedCart);
+        const savedWishlist = localStorage.getItem("ultraveg_wishlist");
+        if (savedWishlist) wishlist = JSON.parse(savedWishlist);
+        updateCounts();
+      }
+
+      function saveCart() {
+        localStorage.setItem("ultraveg_cart", JSON.stringify(cart));
+        updateCounts();
+      }
+
+      function saveWishlist() {
+        localStorage.setItem("ultraveg_wishlist", JSON.stringify(wishlist));
+        updateCounts();
+      }
+
+      function updateCounts() {
+        const cartTotal = cart.reduce((sum, i) => sum + i.quantity, 0);
+        const cartCountEl = document.getElementById("cartCount");
+        if (cartCountEl) cartCountEl.textContent = cartTotal;
+
+        const wishlistCountEl = document.getElementById("wishlistCount");
+        if (wishlistCountEl) wishlistCountEl.textContent = wishlist.length;
+      }
+
+      function showToast(message, type = "success") {
+        const toast = document.createElement("div");
+        toast.className = "toast-message";
+        toast.innerHTML = `<i class="fa-solid fa-${type === "success" ? "check-circle" : "heart"}"></i> ${message}`;
+        document.body.appendChild(toast);
+        setTimeout(() => toast.remove(), 2500);
+      }
+
+      function toggleWishlist(productId) {
+        const index = wishlist.findIndex((i) => i.id === productId);
+        if (index === -1) {
+          const product = products.find((p) => p.id === productId);
+          wishlist.push({ ...product });
+          saveWishlist();
+          showToast(`${product.name} added to wishlist!`, "success");
+        } else {
+          const product = wishlist[index];
+          wishlist.splice(index, 1);
+          saveWishlist();
+          showToast(`${product.name} removed from wishlist`, "success");
+        }
+        renderProducts();
+      }
+
+      function addToCart(productId, quantity = 1) {
+        const product = products.find((p) => p.id === productId);
+        const existing = cart.find((i) => i.id === productId);
+
+        if (existing) {
+          existing.quantity += quantity;
+        } else {
+          cart.push({
+            id: product.id,
+            name: product.name,
+            price: product.price,
+            quantity: quantity,
+            image: product.image,
+            category: product.category,
+          });
+        }
+
+        saveCart();
+        showToast(`${quantity} Ã— ${product.name} added to cart!`, "success");
+        renderProducts();
+      }
+
+      function updateQuantity(productId, delta, currentQtyElement) {
+        const product = products.find((p) => p.id === productId);
+        const existing = cart.find((i) => i.id === productId);
+
+        if (existing) {
+          const newQty = existing.quantity + delta;
+          if (newQty < 1) return;
+          existing.quantity = newQty;
+        } else {
+          if (delta < 1) return;
+          cart.push({ ...product, quantity: delta });
+        }
+
+        saveCart();
+        if (currentQtyElement) {
+          const newQty = existing ? existing.quantity : delta;
+          currentQtyElement.textContent = newQty;
+        }
+        renderProducts();
+      }
+
+      function getCartQuantity(productId) {
+        const item = cart.find((i) => i.id === productId);
+        return item ? item.quantity : 0;
+      }
+
+      function renderProducts() {
+        const grid = document.getElementById("productsGrid");
+        if (!grid) return;
+
+        const filtered =
+          currentCategory === "all"
+            ? products
+            : products.filter((p) => p.category === currentCategory);
+
+        if (filtered.length === 0) {
+          grid.innerHTML =
+            '<div style="text-align:center; padding:60px;">No products found in this category.</div>';
+          return;
+        }
+
+        grid.innerHTML = filtered
+          .map((product) => {
+            const inWishlist = wishlist.some((i) => i.id === product.id);
+            const cartQty = getCartQuantity(product.id);
+            const savings = product.oldPrice - product.price;
+            const discountPercent = Math.round(
+              (savings / product.oldPrice) * 100,
+            );
+
+            return `
+            <div class="product-card" id="product-${product.id}" data-id="${product.id}">
+              <button class="wishlist-btn-card ${inWishlist ? "active" : ""}" onclick="toggleWishlist(${product.id})">
+                <i class="fa-${inWishlist ? "solid" : "regular"} fa-heart"></i>
+              </button>
+              <div class="product-image">
+                <img src="${product.image}" alt="${product.name}">
+                ${savings > 0 ? `<span class="discount-tag">-${discountPercent}%</span>` : ""}
+              </div>
+              <div class="product-content">
+                <h3 class="product-title">${product.name}</h3>
+                <div class="product-category">
+                  <span>${product.category === "signature" ? "Signature" : product.category === "classic" ? "Classic" : product.category === "veggie" ? "Veggie" : "Spicy"}</span>
+                  <div class="rating">
+                    ${"".repeat(Math.floor(product.rating))}${product.rating % 1 ? "" : ""}
+                    <span>(${product.rating})</span>
+                  </div>
+                </div>
+                <div class="price-section">
+                  <span class="current-price">â‚¦${product.price.toLocaleString()}</span>
+                  ${product.oldPrice ? `<span class="old-price">â‚¦${product.oldPrice.toLocaleString()}</span>` : ""}
+                </div>
+                <div class="quantity-selector">
+                  <div class="qty-control">
+                    <button class="qty-btn" onclick="updateQuantity(${product.id}, -1, this.parentElement.parentElement.querySelector('.qty-value'))">-</button>
+                    <span class="qty-value">${cartQty || 1}</span>
+                    <button class="qty-btn" onclick="updateQuantity(${product.id}, 1, this.parentElement.parentElement.querySelector('.qty-value'))">+</button>
+                  </div>
+                </div>
+                <button class="add-to-cart-btn" onclick="addToCart(${product.id}, parseInt(this.parentElement.querySelector('.qty-value').textContent))">
+                  <i class="fa-solid fa-cart-plus"></i> Add to Cart
+                </button>
+              </div>
+            </div>
+          `;
+          })
+          .join("");
+      }
+
+      function setActiveFilter(category) {
+        const filterBtns = document.querySelectorAll(".filter-btn");
+        filterBtns.forEach((btn) => {
+          btn.classList.toggle("active", btn.dataset.category === category);
+        });
+      }
+
+      // Filter functionality
+      function initFilters() {
+        const filterBtns = document.querySelectorAll(".filter-btn");
+        filterBtns.forEach((btn) => {
+          btn.addEventListener("click", () => {
+            currentCategory = btn.dataset.category;
+            setActiveFilter(currentCategory);
+            renderProducts();
+          });
+        });
+      }
+
+      // Hero Slider
+      class HeroSlider {
+        constructor(container) {
+          this.container = container;
+          this.slides = Array.from(container.querySelectorAll(".slide"));
+          this.prevBtn = container.querySelector(".prev-btn");
+          this.nextBtn = container.querySelector(".next-btn");
+          this.dotsContainer = container.querySelector(".slider-dots");
+          this.currentIndex = 0;
+          this.totalSlides = this.slides.length;
+          this.autoPlayInterval = null;
+          this.autoPlayDelay = 5000;
+          this.init();
+        }
+
+        init() {
+          this.createDots();
+          this.updateSlides();
+          this.attachEvents();
+          this.startAutoPlay();
+        }
+
+        createDots() {
+          this.dotsContainer.innerHTML = "";
+          for (let i = 0; i < this.totalSlides; i++) {
+            const dot = document.createElement("div");
+            dot.classList.add("dot");
+            if (i === this.currentIndex) dot.classList.add("active");
+            dot.addEventListener("click", () => {
+              this.stopAutoPlay();
+              this.goToSlide(i);
+              this.startAutoPlay();
+            });
+            this.dotsContainer.appendChild(dot);
+          }
+        }
+
+        updateSlides() {
+          this.slides.forEach((slide, index) => {
+            if (index === this.currentIndex) slide.classList.add("active");
+            else slide.classList.remove("active");
+          });
+          const dots = this.dotsContainer.querySelectorAll(".dot");
+          dots.forEach((dot, index) => {
+            if (index === this.currentIndex) dot.classList.add("active");
+            else dot.classList.remove("active");
+          });
+        }
+
+        goToSlide(index) {
+          if (index < 0) index = this.totalSlides - 1;
+          if (index >= this.totalSlides) index = 0;
+          if (index === this.currentIndex) return;
+          this.currentIndex = index;
+          this.updateSlides();
+        }
+
+        nextSlide() {
+          this.goToSlide(this.currentIndex + 1);
+        }
+        prevSlide() {
+          this.goToSlide(this.currentIndex - 1);
+        }
+
+        attachEvents() {
+          this.prevBtn?.addEventListener("click", () => {
+            this.stopAutoPlay();
+            this.prevSlide();
+            this.startAutoPlay();
+          });
+          this.nextBtn?.addEventListener("click", () => {
+            this.stopAutoPlay();
+            this.nextSlide();
+            this.startAutoPlay();
+          });
+          this.container.addEventListener("mouseenter", () =>
+            this.stopAutoPlay(),
+          );
+          this.container.addEventListener("mouseleave", () =>
+            this.startAutoPlay(),
+          );
+          document.addEventListener("keydown", (e) => {
+            if (e.key === "ArrowLeft") {
+              this.stopAutoPlay();
+              this.prevSlide();
+              this.startAutoPlay();
+            }
+            if (e.key === "ArrowRight") {
+              this.stopAutoPlay();
+              this.nextSlide();
+              this.startAutoPlay();
+            }
+          });
+        }
+
+        startAutoPlay() {
+          if (this.autoPlayInterval) clearInterval(this.autoPlayInterval);
+          this.autoPlayInterval = setInterval(
+            () => this.nextSlide(),
+            this.autoPlayDelay,
+          );
+        }
+        stopAutoPlay() {
+          if (this.autoPlayInterval) {
+            clearInterval(this.autoPlayInterval);
+            this.autoPlayInterval = null;
+          }
+        }
+      }
+
+      function applyMenuDestinationFromUrl() {
+        const params = new URLSearchParams(window.location.search);
+        const category = params.get("category");
+        const productId = params.get("product");
+        const validCategories = new Set(["all", "signature", "classic", "veggie", "spicy"]);
+
+        if (category && validCategories.has(category)) {
+          currentCategory = category;
+        }
+
+        return { productId };
+      }
+
+      function scrollToProduct(productId) {
+        if (!productId) return;
+
+        const target = document.getElementById(`product-${productId}`);
+        if (!target) return;
+
+        target.scrollIntoView({ behavior: "smooth", block: "center" });
+        target.classList.add("product-card-highlight");
+        window.setTimeout(() => {
+          target.classList.remove("product-card-highlight");
+        }, 1800);
+      }
+
+      // Initialize everything
+      document.addEventListener("DOMContentLoaded", () => {
+        loadData();
+        const { productId } = applyMenuDestinationFromUrl();
+        initFilters();
+        setActiveFilter(currentCategory);
+        renderProducts();
+
+        window.setTimeout(() => scrollToProduct(productId), 50);
+
+        const sliderContainer = document.querySelector(
+          ".hero-slider .slider-container",
+        );
+        if (sliderContainer) new HeroSlider(sliderContainer);
+
+        // Fixed navbar scroll effect
+        const header = document.querySelector(".header");
+        if (header) {
+          window.addEventListener("scroll", () => {
+            header.classList.toggle("scrolled", window.scrollY > 50);
+          });
+        }
+      });
+    </script>
+      <script type="module" src="../../../js/menu-view.js"></script>
+  </body>
+</html>
+

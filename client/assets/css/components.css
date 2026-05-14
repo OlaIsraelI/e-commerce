@@ -1,0 +1,116 @@
+/* components.css
+   Centralized component styles for cards, buttons and forms.
+   Uses design tokens defined in global.css (:root variables).
+*/
+
+/* Card base */
+.card,
+.card-base,
+.menu-card,
+.dashboard-card,
+.service-card-about,
+.provider-card,
+.team-card-about,
+.profile-card,
+.team-member-card {
+  background: var(--surface);
+  border: 1px solid rgba(25, 25, 25, 0.08);
+  border-radius: var(--radius-md);
+  padding: 18px;
+  box-shadow: var(--shadow);
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.card:hover,
+.card:focus-visible,
+.menu-card:hover,
+.dashboard-card:hover,
+.service-card-about:hover,
+.provider-card:hover,
+.team-card-about:hover,
+.profile-card:hover,
+.team-member-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 48px rgba(25, 25, 25, 0.12);
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 18px;
+  border-radius: 999px;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    filter 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: white;
+}
+
+.btn-primary:hover {
+  background: var(--accent-dark);
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--text);
+  border: 2px solid var(--accent-dark);
+}
+
+.btn-secondary:hover {
+  background: var(--accent-dark);
+  color: #fff;
+}
+
+/* Forms */
+.form-group {
+  display: grid;
+  gap: 8px;
+}
+
+.form-control,
+input.form-control,
+textarea.form-control,
+.newsletter-input,
+.auth-input {
+  width: 100%;
+  min-height: 44px;
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: 1px solid #cfd8d3;
+  background: #fff;
+  color: var(--text);
+  font-size: 0.95rem;
+  transition:
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.form-control:focus,
+.form-control:focus-visible,
+input.form-control:focus,
+textarea.form-control:focus,
+.newsletter-input:focus,
+.auth-input:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(211, 139, 43, 0.12);
+}
+
+/* Utility */
+.card-grid {
+  display: grid;
+  gap: 20px;
+}

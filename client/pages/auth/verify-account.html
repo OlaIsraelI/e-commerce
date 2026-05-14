@@ -1,0 +1,188 @@
+﻿<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Us - Ultraveg Pizza | E-commerce Pizza Solution</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="../../assets/css/global.css" />
+    <link rel="stylesheet" href="../../assets/css/auth.css" />
+  </head>
+  <body>
+    <header class="header">
+      <nav class="navigation-bar">
+        <a class="logo" href="../../index.html" aria-label="Go to home section">
+          <img src="../../assets/images/logo.png" alt="Logo" />
+        </a>
+        <button
+          class="nav-toggle"
+          type="button"
+          aria-label="Open menu"
+          aria-expanded="false"
+          aria-controls="primary-nav-menu"
+        >
+          <i class="fa-solid fa-bars" aria-hidden="true"></i>
+        </button>
+        <div class="nav-links" id="primary-nav-menu">
+          <ul>
+            <li>
+              <a class="nav-order-button" href="../../pages/view/about.html"
+                >ABOUT</a
+              >
+            </li>
+            <li><a href="../../pages/view/contact.html">CONTACT</a></li>
+            <li>
+              <a href="../../pages/view/categories/categories.html"
+                >CATEGORIES</a
+              >
+            </li>
+            <li><a href="../../pages/view/menu/menu.html">MENU</a></li>
+          </ul>
+        </div>
+        <div class="nav-actions">
+          <a
+            class="cart-link"
+            href="../../pages/view/cart.html"
+            aria-label="Shopping cart"
+          >
+            <i class="fa-solid fa-cart-shopping"></i>
+            <span>CART</span>
+          </a>
+          <a
+            class="wishlist-link"
+            href="../../pages/view/wishlist.html"
+            aria-label="Wishlist"
+          >
+            <i class="fa-regular fa-heart"></i>
+            <span>WISHLIST</span>
+          </a>
+          <a
+            class="signup-button"
+            href="../../pages/auth/login.html"
+            aria-label="Account"
+          >
+            <i class="fa-regular fa-user"></i>
+            <span>ORDER NOW</span>
+          </a>
+        </div>
+      </nav>
+    </header>
+
+    <main id="home">
+      <section class="section-shell auth-section">
+        <div class="auth-container">
+          <h2>Verify Account</h2>
+          <form class="auth-form" id="verifyAccountForm">
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" required />
+            </div>
+            <div class="form-group">
+              <label for="otp">Verification Code</label>
+              <input type="text" id="otp" name="otp" maxlength="6" required />
+            </div>
+            <button type="submit" class="auth-submit">Verify Account</button>
+            <p class="auth-link">
+              <a href="../../pages/auth/login.html"
+                >Already have an account? Login here</a
+              >
+            </p>
+            <p class="auth-link">
+              <a href="#" id="resendOtpLink">Resend verification code</a>
+            </p>
+            <p id="message"></p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer" id="contact">
+      <div class="section-shell footer-grid">
+        <div class="footer-brand">
+          <div class="footer-brand-head">
+            <img
+              class="footer-logo"
+              src="../../assets/images/logo.png"
+              alt="Logo"
+            />
+            <h3>UltraVeg Pizza</h3>
+          </div>
+          <p>Bringing authentic Italian pizza to your table today.</p>
+        </div>
+        <div class="footer-column">
+          <h3>Contact</h3>
+          <ul class="footer-contact-list">
+            <li>
+              <i class="fa-solid fa-location-dot"></i
+              ><span
+                >1st Floor, Computer Science Department, Redeemers University,
+                Ede, Osun State, Nigeria.</span
+              >
+            </li>
+            <li>
+              <i class="fa-solid fa-phone"></i><span>+234 706 4207 988</span>
+            </li>
+            <li>
+              <i class="fa-solid fa-envelope"></i
+              ><span>ultravegpizza@gmail.com</span>
+            </li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3>Opening Days</h3>
+          <ul class="footer-days-list">
+            <li>Monday</li>
+            <li>Tuesday</li>
+            <li>Wednesday</li>
+            <li>Thursday</li>
+            <li>Friday</li>
+            <li>Saturday</li>
+            <li>Sunday</li>
+          </ul>
+        </div>
+        <div class="footer-column footer-social-column">
+          <h3>Follow Us</h3>
+          <div class="footer-socials">
+            <a href="#" aria-label="Facebook"
+              ><i class="fa-brands fa-facebook-f"></i
+            ></a>
+            <a href="#" aria-label="WhatsApp"
+              ><i class="fa-brands fa-whatsapp"></i
+            ></a>
+            <a href="#" aria-label="Instagram"
+              ><i class="fa-brands fa-instagram"></i
+            ></a>
+            <a href="#" aria-label="Snapchat"
+              ><i class="fa-brands fa-snapchat"></i
+            ></a>
+            <a href="#" aria-label="TikTok"
+              ><i class="fa-brands fa-tiktok"></i
+            ></a>
+            <a href="#" aria-label="YouTube"
+              ><i class="fa-brands fa-youtube"></i
+            ></a>
+            <a href="#" aria-label="X"
+              ><i class="fa-brands fa-x-twitter"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-divider section-shell"></div>
+      <div class="footer-copy section-shell">
+        Â© 2026 UltraVeg Pizza. All rights reserved. | Crafted with care
+      </div>
+    </footer>
+    <script type="module" src="../../js/main.js"></script>
+    <script
+      type="module"
+      src="../../js/features/auth/verifyaccount.js"
+    ></script>
+    <script type="module" src="../../js/menu-view.js"></script>
+  </body>
+</html>

@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Admin - Dashboard</title>
+    <link rel="stylesheet" href="../../assets/css/global.css" />
+    <style>
+      .admin-shell {
+        max-width: 900px;
+        margin: 36px auto;
+        padding: 0 20px;
+      }
+      .admin-card {
+        background: var(--surface);
+        border: 1px solid rgba(25, 25, 25, 0.06);
+        border-radius: 16px;
+        padding: 18px;
+        box-shadow: var(--shadow);
+      }
+      .field {
+        display: grid;
+        gap: 6px;
+        margin-bottom: 10px;
+      }
+      .products-list {
+        margin-top: 12px;
+        display: grid;
+        gap: 8px;
+      }
+      .product-row {
+        display: flex;
+        justify-content: space-between;
+        gap: 8px;
+        align-items: center;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="admin-shell">
+      <section class="admin-card">
+        <h1>Admin Dashboard</h1>
+        <p>Add new products to the store (stored locally in browser)</p>
+
+        <form id="productForm">
+          <div class="field">
+            <label>Product name</label>
+            <input name="name" required />
+          </div>
+          <div class="field">
+            <label>Price (NGN)</label>
+            <input name="price" type="number" required />
+          </div>
+          <div class="field">
+            <label>Image file (or paste URL below)</label>
+            <input
+              name="imageFile"
+              id="imageFile"
+              type="file"
+              accept="image/*"
+            />
+            <div
+              style="
+                display: flex;
+                gap: 8px;
+                align-items: center;
+                margin-top: 8px;
+              "
+            >
+              <img
+                id="imagePreview"
+                src=""
+                alt="Preview"
+                style="
+                  width: 84px;
+                  height: 64px;
+                  object-fit: cover;
+                  border-radius: 8px;
+                  display: none;
+                  border: 1px solid rgba(0, 0, 0, 0.06);
+                "
+              />
+              <input
+                name="image"
+                id="imageUrlInput"
+                placeholder="../../assets/images/food.jpg"
+              />
+            </div>
+          </div>
+          <div class="field">
+            <label>Category</label>
+            <input name="category" />
+          </div>
+          <div class="field">
+            <label>SKU</label>
+            <input name="sku" />
+          </div>
+          <div style="display: flex; gap: 8px">
+            <button class="btn btn-primary" type="submit">Add Product</button>
+            <button id="clearBtn" type="button" class="btn btn-secondary">
+              Clear All
+            </button>
+          </div>
+        </form>
+
+        <h2 style="margin-top: 18px">Products</h2>
+        <div id="products" class="products-list"></div>
+      </section>
+    </main>
+
+    <script type="module" src="../../js/features/admin/dashboard.js"></script>
+  </body>
+</html>
