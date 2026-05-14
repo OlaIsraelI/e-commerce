@@ -12,7 +12,6 @@
       referrerpolicy="no-referrer"
     />
     <link rel="stylesheet" href="../../../assets/css/global.css" />
-
     <link rel="stylesheet" href="../../../assets/css/categories.css" />
   </head>
   <body>
@@ -35,7 +34,7 @@
             <li><a href="../about.html">ABOUT</a></li>
             <li><a href="../contact.html">CONTACT</a></li>
             <li>
-              <a class="is-current" href="Top-categories.html">CATEGORIES</a>
+              <a class="is-current" href="categories.html">CATEGORIES</a>
             </li>
             <li><a href="../menu/menu.html">MENU</a></li>
           </ul>
@@ -83,7 +82,7 @@
               <p class="category-desc">
                 Soft drinks, juices, and refreshing beverages
               </p>
-              <span class="explore-btn">Explore â†’</span>
+              <span class="explore-btn">Explore →</span>
             </div>
           </a>
 
@@ -102,7 +101,7 @@
             <div class="category-card-content">
               <div class="item-count">6 Items</div>
               <p class="category-desc">Cakes, pastries, and sweet delights</p>
-              <span class="explore-btn">Explore â†’</span>
+              <span class="explore-btn">Explore →</span>
             </div>
           </a>
 
@@ -120,7 +119,7 @@
               <p class="category-desc">
                 Authentic pasta dishes made fresh daily
               </p>
-              <span class="explore-btn">Explore â†’</span>
+              <span class="explore-btn">Explore →</span>
             </div>
           </a>
 
@@ -141,7 +140,7 @@
               <p class="category-desc">
                 Grilled, fried, and spicy chicken options
               </p>
-              <span class="explore-btn">Explore â†’</span>
+              <span class="explore-btn">Explore →</span>
             </div>
           </a>
 
@@ -159,7 +158,7 @@
               <p class="category-desc">
                 Perfectly crispy fries with various seasonings
               </p>
-              <span class="explore-btn">Explore â†’</span>
+              <span class="explore-btn">Explore →</span>
             </div>
           </a>
 
@@ -180,7 +179,7 @@
               <p class="category-desc">
                 The perfect meal deal - chicken with crispy fries
               </p>
-              <span class="explore-btn">Explore â†’</span>
+              <span class="explore-btn">Explore →</span>
             </div>
           </a>
         </div>
@@ -188,95 +187,28 @@
         <!-- Popular Items Section -->
         <div class="popular-section">
           <h2>Most Popular This Week</h2>
-          <div class="popular-grid">
-            <a href="../menu/menu.html" class="popular-item">
-              <img
-                src="../../../assets/images/delicious-whole-vegetable-pizza.jpg"
-                alt="Margherita"
-              />
-              <div class="popular-item-content">
-                <h4>Margherita Pizza</h4>
-                <span class="popular-price">â‚¦18,000</span>
-              </div>
-            </a>
-            <a href="../menu/menu.html" class="popular-item">
-              <img
-                src="../../../assets/images/pizza-with-extra-cheese-dried-herbs.jpg"
-                alt="Cheese Overload"
-              />
-              <div class="popular-item-content">
-                <h4>Cheese Overload</h4>
-                <span class="popular-price">â‚¦22,000</span>
-              </div>
-            </a>
-            <a href="./Pasta.html" class="popular-item">
-              <img
-                src="../../../assets/images/reservation.jpg"
-                alt="Alfredo Pasta"
-              />
-              <div class="popular-item-content">
-                <h4>Creamy Alfredo</h4>
-                <span class="popular-price">â‚¦15,000</span>
-              </div>
-            </a>
-            <a href="./Drinks.html" class="popular-item">
-              <img
-                src="../../../assets/images/soft-drinks.png"
-                alt="Soft Drinks"
-              />
-              <div class="popular-item-content">
-                <h4>Cold Drinks</h4>
-                <span class="popular-price">â‚¦1,500</span>
-              </div>
-            </a>
+          <div class="popular-grid" id="weeklyPopularContainer">
+            <div
+              class="loading-placeholder"
+              style="text-align: center; padding: 40px"
+            >
+              <i class="fa-solid fa-spinner fa-spin"></i> Loading...
+            </div>
           </div>
         </div>
       </div>
 
+      <!-- You May Also Like Section - DYNAMIC -->
       <div class="popular-products">
         <h2>You May Also Like</h2>
-        <div class="popular-grid">
-          <a href="menu.html" class="popular-card">
-            <img
-              src="../../assets/images/delicious-whole-vegetable-pizza.jpg"
-              alt="Veggie Pizza"
-            />
-            <div class="popular-card-content">
-              <h4>Veggie Supreme</h4>
-              <span class="old-price">₦25,000</span>
-              <span class="new-price"> ₦22,000</span>
-            </div>
-          </a>
-          <a href="menu.html" class="popular-card">
-            <img
-              src="../../assets/images/pizza-with-extra-cheese.jpg"
-              alt="Cheese Pizza"
-            />
-            <div class="popular-card-content">
-              <h4>Cheese Overload</h4>
-              <span class="old-price">₦24,000</span>
-              <span class="new-price"> ₦22,000</span>
-            </div>
-          </a>
-          <a href="menu.html" class="popular-card">
-            <img
-              src="../../assets/images/pepperoni-pizza.jpg"
-              alt="Pepperoni"
-            />
-            <div class="popular-card-content">
-              <h4>Spicy Pepperoni</h4>
-              <span class="old-price">₦26,000</span>
-              <span class="new-price"> ₦23,000</span>
-            </div>
-          </a>
-          <a href="menu.html" class="popular-card">
-            <img src="../../assets/images/margherita.jpg" alt="Margherita" />
-            <div class="popular-card-content">
-              <h4>Italian Margherita</h4>
-              <span class="old-price">₦20,000</span>
-              <span class="new-price"> ₦18,000</span>
-            </div>
-          </a>
+        <div class="popular-grid" id="popularItemsContainer">
+          <div
+            class="loading-placeholder"
+            style="text-align: center; padding: 40px"
+          >
+            <i class="fa-solid fa-spinner fa-spin"></i> Loading
+            recommendations...
+          </div>
         </div>
       </div>
     </main>
@@ -328,7 +260,7 @@
         </div>
       </div>
       <div class="footer-copy section-shell">
-        Â© 2026 UltraVeg Pizza. All rights reserved. | Crafted with care
+        © 2026 UltraVeg Pizza. All rights reserved. | Crafted with care
       </div>
     </footer>
 
@@ -342,9 +274,379 @@
       }
       document.addEventListener("DOMContentLoaded", loadCartCount);
     </script>
+
+    <!-- Popular Items Dynamic Script -->
+    <script>
+      // Product Data for recommendations
+      const products = [
+        {
+          id: 1,
+          name: "Cheese Overload",
+          category: "signature",
+          price: 22000,
+          oldPrice: 25000,
+          image:
+            "../../../assets/images/pizza-with-extra-cheese-dried-herbs.jpg",
+          rating: 4.9,
+        },
+        {
+          id: 2,
+          name: "Italian Margherita",
+          category: "classic",
+          price: 18000,
+          oldPrice: 21000,
+          image:
+            "../../../assets/images/freshly-italian-pizza-with-mozzarella-cheese-slice-generative-ai_188544-12347.jpg",
+          rating: 4.8,
+        },
+        {
+          id: 3,
+          name: "Spicy Pepperoni",
+          category: "spicy",
+          price: 23500,
+          oldPrice: 27000,
+          image:
+            "../../../assets/images/delicious-pepperoni-olive-pizza_84443-77032.jpg",
+          rating: 4.9,
+        },
+        {
+          id: 4,
+          name: "Veggie Supreme",
+          category: "veggie",
+          price: 22000,
+          oldPrice: 25000,
+          image:
+            "../../../assets/images/delicious-whole-vegetable-pizza-loaded-with-colorful-toppings-like-broccoli-peppers-olives-sliced-ready-serve-against-black-background_84443-59206.avif",
+          rating: 4.7,
+        },
+        {
+          id: 5,
+          name: "BBQ Chicken",
+          category: "signature",
+          price: 25500,
+          oldPrice: 29000,
+          image:
+            "../../../assets/images/pizza-pizza-filled-with-tomatoes-salami-olives.jpg",
+          rating: 4.9,
+        },
+        {
+          id: 6,
+          name: "Four Cheese",
+          category: "classic",
+          price: 24000,
+          oldPrice: 27500,
+          image:
+            "../../../assets/images/pizza-with-extra-cheese-dried-herbs.jpg",
+          rating: 4.8,
+        },
+        {
+          id: 7,
+          name: "Meat Lovers",
+          category: "signature",
+          price: 26500,
+          oldPrice: 30000,
+          image:
+            "../../../assets/images/delicious-pepperoni-olive-pizza_84443-77032.jpg",
+          rating: 4.9,
+        },
+        {
+          id: 8,
+          name: "Pesto Garden",
+          category: "veggie",
+          price: 21500,
+          oldPrice: 24000,
+          image:
+            "../../../assets/images/delicious-whole-vegetable-pizza-loaded-with-colorful-toppings-like-broccoli-peppers-olives-sliced-ready-serve-against-black-background_84443-59206.jpg",
+          rating: 4.7,
+        },
+        {
+          id: 9,
+          name: "Diavola",
+          category: "spicy",
+          price: 24500,
+          oldPrice: 28000,
+          image:
+            "../../../assets/images/delicious-whole-vegetable-pizza-loaded-with-colorful-toppings-like-broccoli-peppers-olives-sliced-ready-serve-against-black-background_84443-59206.avif",
+          rating: 4.8,
+        },
+        {
+          id: 10,
+          name: "Hawaiian",
+          category: "classic",
+          price: 21000,
+          oldPrice: 23500,
+          image:
+            "../../../assets/images/pizza-pizza-filled-with-tomatoes-salami-olives.jpg",
+          rating: 4.6,
+        },
+        {
+          id: 11,
+          name: "Truffle Mushroom",
+          category: "signature",
+          price: 28500,
+          oldPrice: 32000,
+          image:
+            "../../../assets/images/pizza-with-extra-cheese-dried-herbs.jpg",
+          rating: 5.0,
+        },
+        {
+          id: 12,
+          name: "Buffalo Chicken",
+          category: "spicy",
+          price: 23800,
+          oldPrice: 26500,
+          image:
+            "../../../assets/images/delicious-pepperoni-olive-pizza_84443-77032.jpg",
+          rating: 4.8,
+        },
+      ];
+
+      // Weekly popular items (static fallback with discounts)
+      const weeklyPopular = [
+        {
+          id: 2,
+          name: "Margherita Pizza",
+          price: 18000,
+          oldPrice: 21000,
+          image: "../../../assets/images/delicious-whole-vegetable-pizza.jpg",
+        },
+        {
+          id: 1,
+          name: "Cheese Overload",
+          price: 22000,
+          oldPrice: 25000,
+          image:
+            "../../../assets/images/pizza-with-extra-cheese-dried-herbs.jpg",
+        },
+        {
+          id: 6,
+          name: "Creamy Alfredo",
+          price: 15000,
+          image: "../../../assets/images/reservation.jpg",
+        },
+        {
+          id: null,
+          name: "Cold Drinks",
+          price: 1500,
+          image: "../../../assets/images/soft-drinks.png",
+        },
+      ];
+
+      // Popular Items Manager
+      class PopularItemsManager {
+        constructor() {
+          this.storageKey = "ultraveg_popular_items";
+          this.popularityData = this.loadData();
+        }
+
+        loadData() {
+          const saved = localStorage.getItem(this.storageKey);
+          if (saved) {
+            return JSON.parse(saved);
+          }
+          return {};
+        }
+
+        saveData() {
+          localStorage.setItem(
+            this.storageKey,
+            JSON.stringify(this.popularityData),
+          );
+        }
+
+        trackView(productId) {
+          if (!this.popularityData[productId]) {
+            this.popularityData[productId] = {
+              views: 0,
+              cartAdds: 0,
+              wishlistAdds: 0,
+              lastUpdated: Date.now(),
+            };
+          }
+          this.popularityData[productId].views += 1;
+          this.popularityData[productId].lastUpdated = Date.now();
+          this.saveData();
+        }
+
+        trackCartAdd(productId, quantity = 1) {
+          if (!this.popularityData[productId]) {
+            this.popularityData[productId] = {
+              views: 0,
+              cartAdds: 0,
+              wishlistAdds: 0,
+              lastUpdated: Date.now(),
+            };
+          }
+          this.popularityData[productId].cartAdds += quantity;
+          this.popularityData[productId].lastUpdated = Date.now();
+          this.saveData();
+        }
+
+        trackWishlistAdd(productId) {
+          if (!this.popularityData[productId]) {
+            this.popularityData[productId] = {
+              views: 0,
+              cartAdds: 0,
+              wishlistAdds: 0,
+              lastUpdated: Date.now(),
+            };
+          }
+          this.popularityData[productId].wishlistAdds += 1;
+          this.popularityData[productId].lastUpdated = Date.now();
+          this.saveData();
+        }
+
+        calculateScore(data) {
+          const cartWeight = 10;
+          const viewWeight = 1;
+          const wishlistWeight = 5;
+
+          const daysSinceUpdate =
+            (Date.now() - data.lastUpdated) / (1000 * 60 * 60 * 24);
+          const timeDecay = Math.max(0.3, 1 - daysSinceUpdate / 30);
+
+          const score =
+            (data.cartAdds * cartWeight +
+              data.views * viewWeight +
+              data.wishlistAdds * wishlistWeight) *
+            timeDecay;
+
+          return score;
+        }
+
+        getMostPopular(productsList, limit = 4) {
+          const scored = Object.keys(this.popularityData)
+            .map((id) => {
+              const productId = parseInt(id);
+              const product = productsList.find((p) => p.id === productId);
+              if (!product) return null;
+
+              return {
+                ...product,
+                popularityScore: this.calculateScore(
+                  this.popularityData[productId],
+                ),
+              };
+            })
+            .filter((p) => p !== null);
+
+          scored.sort((a, b) => b.popularityScore - a.popularityScore);
+          return scored.slice(0, limit);
+        }
+
+        getFallbackRecommendations(productsList, limit = 4) {
+          const withDiscount = productsList.filter(
+            (p) => p.oldPrice && p.oldPrice > p.price,
+          );
+          if (withDiscount.length >= limit) {
+            return withDiscount.slice(0, limit);
+          }
+          return productsList.slice(0, limit);
+        }
+
+        getPopularItems(productsList, limit = 4) {
+          const popular = this.getMostPopular(productsList, limit);
+
+          if (popular.length >= limit) {
+            return popular;
+          }
+
+          const existingIds = new Set(popular.map((p) => p.id));
+          const fallback = this.getFallbackRecommendations(
+            productsList.filter((p) => !existingIds.has(p.id)),
+            limit - popular.length,
+          );
+
+          return [...popular, ...fallback];
+        }
+      }
+
+      const popularItemsManager = new PopularItemsManager();
+
+      function formatCurrency(amount) {
+        return `₦${amount.toLocaleString("en-NG", { minimumFractionDigits: 0, maximumFractionDigits: 0 })}`;
+      }
+
+      function renderWeeklyPopular() {
+        const container = document.getElementById("weeklyPopularContainer");
+        if (!container) return;
+
+        container.innerHTML = weeklyPopular
+          .map((item) => {
+            const hasDiscount = item.oldPrice && item.oldPrice > item.price;
+            const linkUrl = item.id
+              ? `../menu/menu.html?product=${item.id}`
+              : item.name === "Cold Drinks"
+                ? "./Drinks.html"
+                : item.name === "Creamy Alfredo"
+                  ? "./Pasta.html"
+                  : "../menu/menu.html";
+
+            return `
+            <a href="${linkUrl}" class="popular-item" data-id="${item.id || ""}">
+              <img src="${item.image}" alt="${item.name}">
+              <div class="popular-item-content">
+                <h4>${item.name}</h4>
+                ${hasDiscount ? `<span class="old-price">${formatCurrency(item.oldPrice)}</span>` : ""}
+                <span class="popular-price">${formatCurrency(item.price)}</span>
+              </div>
+            </a>
+          `;
+          })
+          .join("");
+      }
+
+      function renderPopularItems() {
+        const container = document.getElementById("popularItemsContainer");
+        if (!container) return;
+
+        const popularItems = popularItemsManager.getPopularItems(products, 4);
+
+        if (popularItems.length === 0) {
+          container.innerHTML =
+            '<p style="text-align:center; color:#888;">No recommendations available</p>';
+          return;
+        }
+
+        container.innerHTML = popularItems
+          .map((item) => {
+            const hasDiscount = item.oldPrice && item.oldPrice > item.price;
+            const discountPercent = hasDiscount
+              ? Math.round(((item.oldPrice - item.price) / item.oldPrice) * 100)
+              : 0;
+
+            return `
+            <a href="../menu/menu.html?product=${item.id}" class="popular-card" data-id="${item.id}">
+              <img src="${item.image}" alt="${item.name}">
+              <div class="popular-card-content">
+                <h4>${item.name}</h4>
+                ${hasDiscount ? `<span class="old-price">${formatCurrency(item.oldPrice)}</span>` : ""}
+                <span class="new-price">${formatCurrency(item.price)}</span>
+                ${discountPercent > 0 ? `<span class="discount-badge">-${discountPercent}%</span>` : ""}
+              </div>
+            </a>
+          `;
+          })
+          .join("");
+      }
+
+      // Track product views when clicking on popular items
+      document.addEventListener("click", function (e) {
+        const popularCard = e.target.closest(".popular-card, .popular-item");
+        if (popularCard && popularCard.dataset && popularCard.dataset.id) {
+          popularItemsManager.trackView(parseInt(popularCard.dataset.id));
+        }
+      });
+
+      // Render all sections when page loads
+      document.addEventListener("DOMContentLoaded", () => {
+        renderWeeklyPopular();
+        renderPopularItems();
+      });
+    </script>
+
     <script type="module">
       import { initNavigationMenu } from "../../../js/components/shared/navigation.js";
-
       document.addEventListener("DOMContentLoaded", initNavigationMenu);
     </script>
     <script type="module" src="../../../js/menu-view.js"></script>
