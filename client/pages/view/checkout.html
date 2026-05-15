@@ -13,7 +13,6 @@
     />
     <link rel="stylesheet" href="../../assets/css/global.css" />
     <link rel="stylesheet" href="../../assets/css/checkout.css" />
-
   </head>
   <body>
     <header class="header">
@@ -28,7 +27,11 @@
           <ul>
             <li><a href="../../pages/view/about.html">ABOUT</a></li>
             <li><a href="../../pages/view/contact.html">CONTACT</a></li>
-            <li><a href="../../pages/view/categories/categories.html">CATEGORIES</a></li>
+            <li>
+              <a href="../../pages/view/categories/categories.html"
+                >CATEGORIES</a
+              >
+            </li>
             <li><a href="../../pages/view/menu/menu.html">MENU</a></li>
           </ul>
         </div>
@@ -62,69 +65,108 @@
             <!-- Account Options - New vs Returning -->
             <div class="account-options" id="accountOptions">
               <div class="account-card active" data-account="new">
-                <h4>ðŸ†• New Customer</h4>
+                <h4>New Customer</h4>
                 <p>Create an account for faster checkout and order tracking</p>
               </div>
               <div class="account-card" data-account="returning">
-                <h4>ðŸ”„ Returning Customer</h4>
+                <h4>Returning Customer</h4>
                 <p>Sign in to your existing account</p>
               </div>
             </div>
 
             <!-- Returning Customer Login Form -->
-            <div class="returning-customer" id="returningCustomerForm" style="display: none;">
+            <div
+              class="returning-customer"
+              id="returningCustomerForm"
+              style="display: none"
+            >
               <h4>Sign In <i class="fa-solid fa-chevron-down"></i></h4>
               <div class="login-fields show">
                 <div class="form-group">
                   <label>Email Address *</label>
-                  <input type="email" id="loginEmail" placeholder="Enter your email">
+                  <input
+                    type="email"
+                    id="loginEmail"
+                    placeholder="Enter your email"
+                  />
                 </div>
                 <div class="form-group">
                   <label>Password *</label>
-                  <input type="password" id="loginPassword" placeholder="Enter your password">
+                  <input
+                    type="password"
+                    id="loginPassword"
+                    placeholder="Enter your password"
+                  />
                 </div>
                 <div class="login-row">
-                  <button type="button" id="signInBtn" class="apply-coupon" style="padding:10px 24px;">Sign In</button>
-                  <a href="#" style="color:#f2653a; text-decoration:none;">Forgot Password?</a>
+                  <button
+                    type="button"
+                    id="signInBtn"
+                    class="apply-coupon"
+                    style="padding: 10px 24px"
+                  >
+                    Sign In
+                  </button>
+                  <a href="#" style="color: #f2653a; text-decoration: none"
+                    >Forgot Password?</a
+                  >
                 </div>
               </div>
             </div>
 
             <!-- Billing Details Form -->
             <h3 class="section-title">Billing Details</h3>
-            
+
             <div class="form-group">
               <label>Checkout Options</label>
-              <div style="display: flex; gap: 16px;">
-                <label><input type="checkbox" id="useExistingBills"> I want to use my existing eBills</label>
-                <label><input type="checkbox" id="sameAddress"> I want to use same address</label>
+              <div style="display: flex; gap: 16px">
+                <label
+                  ><input type="checkbox" id="useExistingBills" /> I want to use
+                  my existing eBills</label
+                >
+                <label
+                  ><input type="checkbox" id="sameAddress" /> I want to use same
+                  address</label
+                >
               </div>
             </div>
 
             <div class="form-row">
               <div class="form-group">
                 <label>First Name *</label>
-                <input type="text" id="firstName" placeholder="Enter your first name">
+                <input
+                  type="text"
+                  id="firstName"
+                  placeholder="Enter your first name"
+                />
               </div>
               <div class="form-group">
                 <label>Last Name *</label>
-                <input type="text" id="lastName" placeholder="Enter your last name">
+                <input
+                  type="text"
+                  id="lastName"
+                  placeholder="Enter your last name"
+                />
               </div>
             </div>
 
             <div class="form-group">
               <label>Address</label>
-              <input type="text" id="addressLine1" placeholder="Address Line 1">
+              <input
+                type="text"
+                id="addressLine1"
+                placeholder="Address Line 1"
+              />
             </div>
 
             <div class="form-row">
               <div class="form-group">
                 <label>City *</label>
-                <input type="text" id="city" placeholder="City">
+                <input type="text" id="city" placeholder="City" />
               </div>
               <div class="form-group">
                 <label>Post Code</label>
-                <input type="text" id="postCode" placeholder="Post Code">
+                <input type="text" id="postCode" placeholder="Post Code" />
               </div>
             </div>
 
@@ -141,33 +183,46 @@
               </div>
               <div class="form-group">
                 <label>Phone Number</label>
-                <input type="tel" id="phone" placeholder="Phone Number">
+                <input type="tel" id="phone" placeholder="Phone Number" />
               </div>
             </div>
 
             <div class="form-group">
               <label>Order Notes (Optional)</label>
-              <textarea id="orderNotes" rows="2" placeholder="Special requests or delivery instructions..."></textarea>
+              <textarea
+                id="orderNotes"
+                rows="2"
+                placeholder="Special requests or delivery instructions..."
+              ></textarea>
             </div>
 
             <!-- Delivery Method Selection -->
             <h3 class="section-title">Delivery Method</h3>
             <div class="payment-methods">
               <label class="payment-option">
-                <input type="radio" name="deliveryMethod" value="standard" checked>
+                <input
+                  type="radio"
+                  name="deliveryMethod"
+                  value="standard"
+                  checked
+                />
                 <div class="payment-details">
                   <div class="payment-title">Standard Delivery</div>
-                  <div class="payment-desc">Estimated delivery: 30-45 minutes</div>
+                  <div class="payment-desc">
+                    Estimated delivery: 30-45 minutes
+                  </div>
                 </div>
-                <span style="font-weight:700;">â‚¦1,500</span>
+                <span style="font-weight: 700">₦1,500</span>
               </label>
               <label class="payment-option">
-                <input type="radio" name="deliveryMethod" value="express">
+                <input type="radio" name="deliveryMethod" value="express" />
                 <div class="payment-details">
                   <div class="payment-title">Express Delivery</div>
-                  <div class="payment-desc">Estimated delivery: 15-20 minutes</div>
+                  <div class="payment-desc">
+                    Estimated delivery: 15-20 minutes
+                  </div>
                 </div>
-                <span style="font-weight:700;">â‚¦2,500</span>
+                <span style="font-weight: 700">₦2,500</span>
               </label>
             </div>
 
@@ -175,7 +230,7 @@
             <h3 class="section-title">Payment Method</h3>
             <div class="payment-methods">
               <label class="payment-option">
-                <input type="radio" name="paymentMethod" value="card" checked>
+                <input type="radio" name="paymentMethod" value="card" checked />
                 <i class="fa-brands fa-cc-visa payment-icon"></i>
                 <div class="payment-details">
                   <div class="payment-title">Credit / Debit Card</div>
@@ -183,7 +238,7 @@
                 </div>
               </label>
               <label class="payment-option">
-                <input type="radio" name="paymentMethod" value="transfer">
+                <input type="radio" name="paymentMethod" value="transfer" />
                 <i class="fa-solid fa-building-columns payment-icon"></i>
                 <div class="payment-details">
                   <div class="payment-title">Bank Transfer</div>
@@ -191,11 +246,13 @@
                 </div>
               </label>
               <label class="payment-option">
-                <input type="radio" name="paymentMethod" value="cod">
+                <input type="radio" name="paymentMethod" value="cod" />
                 <i class="fa-solid fa-money-bill payment-icon"></i>
                 <div class="payment-details">
                   <div class="payment-title">Cash on Delivery</div>
-                  <div class="payment-desc">Pay when you receive your order</div>
+                  <div class="payment-desc">
+                    Pay when you receive your order
+                  </div>
                 </div>
               </label>
             </div>
@@ -209,21 +266,27 @@
             </div>
             <div class="totals-row subtotal">
               <span>Subtotal</span>
-              <span id="summarySubtotal">â‚¦0.00</span>
+              <span id="summarySubtotal">₦0.00</span>
             </div>
             <div class="totals-row">
               <span>Delivery Fee</span>
-              <span id="summaryDelivery">â‚¦1,500</span>
+              <span id="summaryDelivery">₦1,500</span>
             </div>
-            <div class="totals-row" id="summaryDiscountRow" style="display:none;">
+            <div
+              class="totals-row"
+              id="summaryDiscountRow"
+              style="display: none"
+            >
               <span>Discount</span>
-              <span id="summaryDiscount">-â‚¦0.00</span>
+              <span id="summaryDiscount">-₦0.00</span>
             </div>
             <div class="totals-row grand">
               <span>Total Amount</span>
-              <span id="summaryTotal">â‚¦0.00</span>
+              <span id="summaryTotal">₦0.00</span>
             </div>
-            <button class="place-order-btn" id="placeOrderBtn">Place Order</button>
+            <button class="place-order-btn" id="placeOrderBtn">
+              Place Order
+            </button>
             <a href="cart.html" class="back-link">
               <i class="fa-solid fa-arrow-left"></i> Back to Cart
             </a>
@@ -231,129 +294,262 @@
         </div>
       </div>
     </main>
+    <footer class="footer" id="contact">
+      <div class="section-shell footer-grid">
+        <div class="footer-brand">
+          <div class="footer-brand-head">
+            <a href="../../index.html" aria-label="Go to home section">
+              <img
+                class="footer-logo"
+                src="../../assets/images/logo.png"
+                alt="Logo"
+            /></a>
+            <h3>UltraVeg Pizza</h3>
+          </div>
+          <p>Bringing authentic Italian pizza to your table today.</p>
+        </div>
+        <div class="footer-column">
+          <h3>
+            <a
+              href="../../pages/view/contact.html"
+              aria-label="Go to contact section"
+              >Contact</a
+            >
+          </h3>
+          <ul class="footer-contact-list">
+            <li>
+              <i class="fa-solid fa-location-dot"></i
+              ><span>Redeemers University, Ede, Osun State, Nigeria.</span>
+            </li>
+            <li>
+              <i class="fa-solid fa-phone"></i><span>+234 706 4207 988</span>
+            </li>
+            <li>
+              <i class="fa-solid fa-envelope"></i
+              ><span>ultravegpizza@gmail.com</span>
+            </li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3>
+            <a
+              href="../../pages/view/contact.html"
+              aria-label="Go to hours section"
+              >Opening Hours</a
+            >
+          </h3>
+          <ul class="footer-days-list">
+            <li>Monday - Sunday</li>
+            <li>10:00 AM - 10:00 PM</li>
+          </ul>
+        </div>
+        <div class="footer-column footer-social-column">
+          <h3>
+            <a
+              href="../../pages/view/contact.html"
+              aria-label="Go to social section"
+              >Follow Us</a
+            >
+          </h3>
+          <div class="footer-socials">
+            <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+            <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-divider section-shell"></div>
+      <div class="footer-copy section-shell">
+        © 2026 UltraVeg Pizza. All rights reserved. | Crafted with care
+      </div>
+    </footer>
 
     <script>
-      let checkoutData = { cart: [], subtotal: 0, discount: 0, total: 0, coupon: null };
+      let checkoutData = {
+        cart: [],
+        subtotal: 0,
+        discount: 0,
+        total: 0,
+        coupon: null,
+      };
 
       function loadCheckoutData() {
-        const saved = localStorage.getItem('ultraveg_checkout_data');
+        const saved = localStorage.getItem("ultraveg_checkout_data");
         if (saved) {
           checkoutData = JSON.parse(saved);
         } else {
-          const savedCart = localStorage.getItem('ultraveg_cart');
+          const savedCart = localStorage.getItem("ultraveg_cart");
           if (savedCart) {
             const cart = JSON.parse(savedCart);
-            const subtotal = cart.reduce((sum, i) => sum + (i.price * i.quantity), 0);
-            checkoutData = { cart, subtotal, discount: 0, total: subtotal + 1500, coupon: null };
+            const subtotal = cart.reduce(
+              (sum, i) => sum + i.price * i.quantity,
+              0,
+            );
+            checkoutData = {
+              cart,
+              subtotal,
+              discount: 0,
+              total: subtotal + 1500,
+              coupon: null,
+            };
           }
         }
         renderOrderSummary();
       }
 
       function renderOrderSummary() {
-        const container = document.getElementById('orderItemsList');
-        const subtotalEl = document.getElementById('summarySubtotal');
-        const totalEl = document.getElementById('summaryTotal');
-        const discountRow = document.getElementById('summaryDiscountRow');
-        const discountEl = document.getElementById('summaryDiscount');
-        const deliveryEl = document.getElementById('summaryDelivery');
+        const container = document.getElementById("orderItemsList");
+        const subtotalEl = document.getElementById("summarySubtotal");
+        const totalEl = document.getElementById("summaryTotal");
+        const discountRow = document.getElementById("summaryDiscountRow");
+        const discountEl = document.getElementById("summaryDiscount");
+        const deliveryEl = document.getElementById("summaryDelivery");
 
         if (!checkoutData.cart || checkoutData.cart.length === 0) {
-          container.innerHTML = '<p style="text-align:center; color:#888;">No items in cart</p>';
-          if (subtotalEl) subtotalEl.textContent = 'â‚¦0.00';
-          if (totalEl) totalEl.textContent = 'â‚¦0.00';
+          container.innerHTML =
+            '<p style="text-align:center; color:#888;">No items in cart</p>';
+          if (subtotalEl) subtotalEl.textContent = "₦0.00";
+          if (totalEl) totalEl.textContent = "₦0.00";
           return;
         }
 
-        container.innerHTML = checkoutData.cart.map(item => `
+        container.innerHTML = checkoutData.cart
+          .map(
+            (item) => `
           <div class="order-item">
-            <span class="order-item-name">${item.name} Ã— ${item.quantity}</span>
-            <span class="order-item-price">â‚¦${(item.price * item.quantity).toFixed(2)}</span>
+            <span class="order-item-name">${item.name} — ${item.quantity}</span>
+            <span class="order-item-price">₦${(item.price * item.quantity).toFixed(2)}</span>
           </div>
-        `).join('');
+        `,
+          )
+          .join("");
 
         const delivery = 1500;
         const total = checkoutData.subtotal - checkoutData.discount + delivery;
 
-        if (subtotalEl) subtotalEl.textContent = `â‚¦${checkoutData.subtotal.toFixed(2)}`;
-        if (deliveryEl) deliveryEl.textContent = `â‚¦${delivery}`;
-        if (totalEl) totalEl.textContent = `â‚¦${total.toFixed(2)}`;
+        if (subtotalEl)
+          subtotalEl.textContent = `₦${checkoutData.subtotal.toFixed(2)}`;
+        if (deliveryEl) deliveryEl.textContent = `₦${delivery}`;
+        if (totalEl) totalEl.textContent = `₦${total.toFixed(2)}`;
 
         if (checkoutData.discount > 0) {
-          if (discountRow) discountRow.style.display = 'flex';
-          if (discountEl) discountEl.textContent = `-â‚¦${checkoutData.discount.toFixed(2)}`;
+          if (discountRow) discountRow.style.display = "flex";
+          if (discountEl)
+            discountEl.textContent = `-₦${checkoutData.discount.toFixed(2)}`;
         } else {
-          if (discountRow) discountRow.style.display = 'none';
+          if (discountRow) discountRow.style.display = "none";
         }
       }
 
       function placeOrder() {
-        const firstName = document.getElementById('firstName')?.value;
-        const lastName = document.getElementById('lastName')?.value;
-        const address = document.getElementById('addressLine1')?.value;
-        const city = document.getElementById('city')?.value;
-        const phone = document.getElementById('phone')?.value;
-
-        if (!firstName || !lastName || !address || !city || !phone) {
-          alert('Please fill in all required fields');
+        // Validate cart has items
+        if (!checkoutData.cart || checkoutData.cart.length === 0) {
+          alert("Your cart is empty. Please add items before checking out.");
+          window.location.href = "cart.html";
           return;
         }
 
+        const firstName = document.getElementById("firstName")?.value?.trim();
+        const lastName = document.getElementById("lastName")?.value?.trim();
+        const address = document.getElementById("addressLine1")?.value?.trim();
+        const city = document.getElementById("city")?.value?.trim();
+        const phone = document.getElementById("phone")?.value?.trim();
+        const notes =
+          document.getElementById("orderNotes")?.value?.trim() || "";
+
+        if (!firstName || !lastName || !address || !city || !phone) {
+          alert("Please fill in all required fields");
+          return;
+        }
+
+        const deliveryMethod =
+          document.querySelector('input[name="deliveryMethod"]:checked')
+            ?.value || "standard";
+        const deliveryFee = deliveryMethod === "express" ? 2500 : 1500;
+
+        // Recalculate totals to ensure accuracy
+        const subtotal = checkoutData.cart.reduce(
+          (sum, item) => sum + item.price * item.quantity,
+          0,
+        );
+        const discount = checkoutData.discount || 0;
+        const total = subtotal - discount + deliveryFee;
+
         const order = {
-          orderId: 'ORD-' + Date.now(),
+          orderId: "ORD-" + Date.now(),
           date: new Date().toISOString(),
-          customer: { firstName, lastName, phone, address, city },
+          customer: {
+            firstName,
+            lastName,
+            phone,
+            address,
+            city,
+            notes,
+          },
           items: checkoutData.cart,
-          subtotal: checkoutData.subtotal,
-          discount: checkoutData.discount,
-          deliveryFee: 1500,
-          total: checkoutData.subtotal - checkoutData.discount + 1500,
-          paymentMethod: document.querySelector('input[name="paymentMethod"]:checked')?.value,
-          deliveryMethod: document.querySelector('input[name="deliveryMethod"]:checked')?.value,
-          status: 'pending'
+          subtotal: subtotal,
+          discount: discount,
+          deliveryFee: deliveryFee,
+          total: total,
+          paymentMethod:
+            document.querySelector('input[name="paymentMethod"]:checked')
+              ?.value || "card",
+          deliveryMethod: deliveryMethod,
+          status: "pending",
         };
 
-        // Save order to localStorage
-        const orders = JSON.parse(localStorage.getItem('ultraveg_orders') || '[]');
-        orders.push(order);
-        localStorage.setItem('ultraveg_orders', JSON.stringify(orders));
-        
-        // Clear cart
-        localStorage.removeItem('ultraveg_cart');
-        localStorage.removeItem('ultraveg_checkout_data');
+        // Debug log
+        console.log("Order being saved:", order);
 
-        alert(`Order placed successfully!\nOrder ID: ${order.orderId}\nTotal: â‚¦${order.total.toFixed(2)}\n\nThank you for choosing Ultraveg Pizza!`);
-        window.location.href = 'menu.html';
+        // Save order to localStorage
+        const orders = JSON.parse(
+          localStorage.getItem("ultraveg_orders") || "[]",
+        );
+        orders.push(order);
+        localStorage.setItem("ultraveg_orders", JSON.stringify(orders));
+
+        // Save as current/last order for confirmation page
+        localStorage.setItem("ultraveg_current_order", JSON.stringify(order));
+
+        // Clear cart
+        localStorage.removeItem("ultraveg_cart");
+        localStorage.removeItem("ultraveg_checkout_data");
+
+        // Redirect to confirmation page
+        window.location.href = "confirmation.html";
       }
 
       // Account toggle functionality
-      document.addEventListener('DOMContentLoaded', () => {
+      document.addEventListener("DOMContentLoaded", () => {
         loadCheckoutData();
-        
-        const accountCards = document.querySelectorAll('.account-card');
-        const returningForm = document.getElementById('returningCustomerForm');
-        
-        accountCards.forEach(card => {
-          card.addEventListener('click', () => {
-            accountCards.forEach(c => c.classList.remove('active'));
-            card.classList.add('active');
-            
-            if (card.dataset.account === 'returning') {
-              returningForm.style.display = 'block';
+
+        const accountCards = document.querySelectorAll(".account-card");
+        const returningForm = document.getElementById("returningCustomerForm");
+
+        accountCards.forEach((card) => {
+          card.addEventListener("click", () => {
+            accountCards.forEach((c) => c.classList.remove("active"));
+            card.classList.add("active");
+
+            if (card.dataset.account === "returning") {
+              returningForm.style.display = "block";
             } else {
-              returningForm.style.display = 'none';
+              returningForm.style.display = "none";
             }
           });
         });
 
-        document.getElementById('placeOrderBtn')?.addEventListener('click', placeOrder);
-        
+        document
+          .getElementById("placeOrderBtn")
+          ?.addEventListener("click", placeOrder);
+
         // Sign In functionality
-        document.getElementById('signInBtn')?.addEventListener('click', () => {
-          alert('Demo: Sign in functionality would connect to your backend');
+        document.getElementById("signInBtn")?.addEventListener("click", () => {
+          alert("Demo: Sign in functionality would connect to your backend");
         });
       });
     </script>
-      <script type="module" src="../../js/menu-view.js"></script>
+    <script type="module" src="../../js/menu-view.js"></script>
   </body>
 </html>

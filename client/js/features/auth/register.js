@@ -2,6 +2,11 @@ import { register } from "../../services/api/authApi.js";
 import { showMessage } from "../../utils/ui.js";
 import { redirectIfAuthenticated } from "../../utils/guard.js";
 import { getVerifyAccountPageHref } from "../../utils/navigation.js";
+import {
+  validatePassword,
+  doPasswordsMatch,
+} from "../../utils/passwordValidator.js";
+import { formatErrorMessage } from "../../utils/errorFormatter.js";
 
 const logPrefix = "[register-page]";
 const PRIMARY_REDIRECT_DELAY_MS = 500;
@@ -13,7 +18,6 @@ const redirectPromise = redirectIfAuthenticated();
 const form = document.getElementById("registerForm");
 const submitBtn = form?.querySelector("button[type='submit']");
 const PHONE_REGEX = /^(?:\+234|0)[789][01]\d{8}$/;
-const PASSWORD_REGEX = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d@$!%*?&]{8,}$/;
 
 if (!form) {
   console.error("Register form not found");
@@ -23,39 +27,6 @@ console.log(`${logPrefix} form initialized`, {
   hasForm: !!form,
   hasSubmitBtn: !!submitBtn,
 });
-
-if ("serviceWorker" in navigator) {
-  navigator.serviceWorker
-    .getRegistrations()
-    .then((registrations) => {
-      console.log(`${logPrefix} active service workers`, {
-        count: registrations.length,
-      });
-      console.log(`${logPrefix} service worker controlling page`, {
-        hasController: !!navigator.serviceWorker.controller,
-      });
-    })
-    .catch((error) => {
-      console.error(`${logPrefix} failed to inspect service workers`, error);
-    });
-} else {
-  console.log(`${logPrefix} service worker API not supported in this browser`);
-}
-
-if (
-  window.navigation &&
-  typeof window.navigation.addEventListener === "function"
-) {
-  window.navigation.addEventListener("navigate", (event) => {
-    console.log(`${logPrefix} navigation intercepted`, {
-      destination: event.destination?.url || "unknown",
-      canIntercept: event.canIntercept,
-      userInitiated: event.userInitiated,
-    });
-  });
-} else {
-  console.log(`${logPrefix} navigation API not supported in this browser`);
-}
 
 const navigateWithFallbacks = (redirectUrl, phase) => {
   const methods = ["assign", "href", "replace"];
@@ -99,19 +70,26 @@ form?.addEventListener("submit", async (e) => {
   console.log(`${logPrefix} submit started`);
 
   const formData = new FormData(form);
-  const name = formData.get("name");
-  const email = formData.get("email");
-  const number = formData.get("phone-number");
+  const name = formData.get("name")?.trim();
+  const email = formData.get("email")?.trim();
+  const number = formData.get("phone-number")?.trim();
   const password = formData.get("password");
   const confirmPassword = formData.get("confirm-password");
 
-  //Basic validation
+  // Basic field validation
   if (!name || !email || !password || !confirmPassword) {
     showMessage("All fields are required.", "error");
     return;
   }
 
-  if (!PHONE_REGEX.test(String(number || "").trim())) {
+  // Email validation
+  if (!email.includes("@")) {
+    showMessage("Please enter a valid email address.", "error");
+    return;
+  }
+
+  // Phone validation
+  if (!PHONE_REGEX.test(number)) {
     showMessage(
       "Enter a valid Nigerian phone number (e.g. 07064207988 or +2347064207988).",
       "error",
@@ -119,16 +97,17 @@ form?.addEventListener("submit", async (e) => {
     return;
   }
 
-  if (!PASSWORD_REGEX.test(String(password || ""))) {
-    showMessage(
-      "Password must be at least 8 characters and include at least one letter and one number.",
-      "error",
-    );
+  // Password strength validation
+  const passwordValidation = validatePassword(password);
+  if (!passwordValidation.valid) {
+    showMessage(passwordValidation.errors[0], "error");
     return;
   }
 
-  if (password !== confirmPassword) {
-    showMessage("Passwords do not match.", "error");
+  // Password match validation
+  const passwordMatch = doPasswordsMatch(password, confirmPassword);
+  if (!passwordMatch.match) {
+    showMessage(passwordMatch.error, "error");
     return;
   }
 
@@ -136,6 +115,7 @@ form?.addEventListener("submit", async (e) => {
     name,
     email,
     number,
+    passwordStrength: passwordValidation.strength,
   });
 
   try {
@@ -194,7 +174,8 @@ form?.addEventListener("submit", async (e) => {
   } catch (error) {
     console.error("Registration error:", error);
     console.error(`${logPrefix} submit failed`, error);
-    showMessage(error.message || "Registration failed.", "error");
+    const friendlyMessage = formatErrorMessage(error.message);
+    showMessage(friendlyMessage, "error");
 
     if (submitBtn) {
       submitBtn.disabled = false;

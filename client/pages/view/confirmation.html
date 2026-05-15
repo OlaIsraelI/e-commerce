@@ -4,6 +4,10 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>Order Confirmation</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    />
     <link rel="stylesheet" href="../../assets/css/global.css" />
     <style>
       .confirm-shell {
@@ -11,31 +15,223 @@
         margin: 36px auto;
         padding: 0 20px;
       }
+
+      .success-message {
+        background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+        color: white;
+        padding: 24px;
+        border-radius: 12px;
+        margin-bottom: 24px;
+        text-align: center;
+        box-shadow: 0 4px 12px rgba(16, 185, 129, 0.2);
+      }
+
+      .success-message h1 {
+        margin: 0 0 8px 0;
+        font-size: 28px;
+      }
+
+      .success-message .checkmark {
+        font-size: 48px;
+        margin-bottom: 12px;
+      }
+
       .confirm-card {
         background: var(--surface);
         border: 1px solid rgba(25, 25, 25, 0.06);
         border-radius: 16px;
-        padding: 18px;
+        padding: 24px;
         box-shadow: var(--shadow);
+        margin-bottom: 24px;
       }
+
+      .confirm-card h2 {
+        margin-top: 0;
+        color: var(--text);
+        font-size: 20px;
+        border-bottom: 2px solid #f2653a;
+        padding-bottom: 12px;
+        margin-bottom: 16px;
+      }
+
       .order-meta {
-        display: flex;
-        gap: 12px;
-        flex-wrap: wrap;
-        align-items: center;
-      }
-      .order-items {
-        margin-top: 12px;
         display: grid;
-        gap: 8px;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 16px;
+        margin-bottom: 20px;
       }
+
+      .meta-item {
+        background: #f9fafb;
+        padding: 12px;
+        border-radius: 8px;
+        border-left: 4px solid #f2653a;
+      }
+
+      .meta-item strong {
+        display: block;
+        color: #666;
+        font-size: 12px;
+        text-transform: uppercase;
+        margin-bottom: 4px;
+      }
+
+      .meta-item div {
+        color: var(--text);
+        font-size: 14px;
+        font-weight: 600;
+      }
+
+      .order-items {
+        margin: 20px 0;
+        display: grid;
+        gap: 12px;
+      }
+
       .order-item {
         display: flex;
         justify-content: space-between;
         gap: 12px;
+        padding: 12px;
+        background: #f9fafb;
+        border-radius: 8px;
+        border-left: 3px solid #f2653a;
       }
+
+      .order-item-name {
+        flex: 1;
+        font-weight: 600;
+      }
+
+      .order-item-price {
+        font-weight: 700;
+        color: #f2653a;
+      }
+
+      .order-summary {
+        background: #f9fafb;
+        padding: 16px;
+        border-radius: 8px;
+        margin-top: 16px;
+      }
+
+      .summary-row {
+        display: flex;
+        justify-content: space-between;
+        padding: 8px 0;
+        border-bottom: 1px solid rgba(25, 25, 25, 0.06);
+      }
+
+      .summary-row:last-child {
+        border-bottom: none;
+      }
+
+      .summary-row.total {
+        font-size: 18px;
+        font-weight: 700;
+        color: #f2653a;
+        padding: 12px 0;
+        margin-top: 12px;
+        border-top: 2px solid rgba(25, 25, 25, 0.1);
+      }
+
+      .action-buttons {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+        margin-top: 24px;
+        padding-top: 24px;
+        border-top: 2px solid rgba(25, 25, 25, 0.06);
+      }
+
+      .btn {
+        flex: 1;
+        min-width: 160px;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 8px;
+        font-size: 14px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        text-decoration: none;
+      }
+
+      .btn-pdf {
+        background: #f2653a;
+        color: white;
+      }
+
+      .btn-pdf:hover {
+        background: #e04d2a;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(242, 101, 58, 0.3);
+      }
+
+      .btn-primary {
+        background: var(--primary);
+        color: white;
+      }
+
+      .btn-primary:hover {
+        opacity: 0.9;
+        transform: translateY(-2px);
+      }
+
+      .btn-secondary {
+        background: #e5e7eb;
+        color: var(--text);
+      }
+
+      .btn-secondary:hover {
+        background: #d1d5db;
+        transform: translateY(-2px);
+      }
+
+      .delivery-info {
+        background: #fffbeb;
+        border-left: 4px solid #f59e0b;
+        padding: 16px;
+        border-radius: 8px;
+        margin-top: 16px;
+      }
+
+      .delivery-info strong {
+        display: block;
+        color: #d97706;
+        margin-bottom: 8px;
+      }
+
       .empty {
         color: var(--muted);
+        text-align: center;
+        padding: 20px;
+      }
+
+      @media (max-width: 768px) {
+        .action-buttons {
+          flex-direction: column;
+        }
+
+        .btn {
+          min-width: auto;
+        }
+
+        .order-meta {
+          grid-template-columns: 1fr;
+        }
+
+        .success-message h1 {
+          font-size: 24px;
+        }
+
+        .success-message .checkmark {
+          font-size: 40px;
+        }
       }
     </style>
   </head>
@@ -49,25 +245,300 @@
     </header>
 
     <main class="confirm-shell">
-      <section class="confirm-card">
-        <h1>Order Confirmation</h1>
-        <p id="orderMessage">Thank you — your order is confirmed.</p>
+      <!-- Success Message -->
+      <div class="success-message">
+        <div class="checkmark">✓</div>
+        <h1>Order Confirmed!</h1>
+        <p>Thank you for your order. Your food is being prepared.</p>
+      </div>
 
-        <div id="orderDetails">
-          <!-- populated by JS -->
+      <!-- Order Details Card -->
+      <div class="confirm-card">
+        <h2><i class="fas fa-clipboard-list"></i> Order Details</h2>
+
+        <div class="order-meta" id="orderMeta">
+          <!-- Meta items populated by JS -->
         </div>
 
-        <div style="margin-top: 18px">
-          <a class="primary-button" href="../../pages/view/menu/menu.html"
-            >Continue Shopping</a
+        <!-- Order Items -->
+        <div id="orderItemsList" class="order-items">
+          <!-- Items populated by JS -->
+        </div>
+
+        <!-- Order Summary -->
+        <div class="order-summary">
+          <div class="summary-row">
+            <span>Subtotal</span>
+            <span id="summarySubtotal">₦0.00</span>
+          </div>
+          <div class="summary-row">
+            <span>Delivery Fee</span>
+            <span id="summaryDelivery">₦0.00</span>
+          </div>
+          <div class="summary-row" id="discountRow" style="display: none">
+            <span>Discount</span>
+            <span id="summaryDiscount">₦0.00</span>
+          </div>
+          <div class="summary-row total">
+            <span>Total Amount</span>
+            <span id="summaryTotal">₦0.00</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Delivery Info Card -->
+      <div class="confirm-card">
+        <h2><i class="fas fa-truck"></i> Delivery Information</h2>
+        <div id="deliveryInfo">
+          <!-- Populated by JS -->
+        </div>
+        <div class="delivery-info">
+          <strong
+            ><i class="fas fa-info-circle"></i> Estimated Delivery Time</strong
           >
+          <div id="estimatedTime">30-45 minutes</div>
         </div>
-      </section>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="confirm-card">
+        <div class="action-buttons">
+          <button class="btn btn-pdf" id="downloadPdfBtn">
+            <i class="fas fa-file-pdf"></i> Download Receipt
+          </button>
+          <button class="btn btn-pdf" id="viewPdfBtn">
+            <i class="fas fa-eye"></i> View Receipt
+          </button>
+          <a href="../../pages/view/menu/menu.html" class="btn btn-primary">
+            <i class="fas fa-shopping-bag"></i> Continue Shopping
+          </a>
+          <a href="../../index.html" class="btn btn-secondary">
+            <i class="fas fa-home"></i> Go Home
+          </a>
+        </div>
+      </div>
     </main>
 
-    <script
-      type="module"
-      src="../../js/features/commerce/confirmation.js"
-    ></script>
+    <footer class="footer" id="contact">
+      <div class="section-shell footer-grid">
+        <div class="footer-brand">
+          <div class="footer-brand-head">
+            <a href="../../index.html" aria-label="Go to home section">
+              <img
+                class="footer-logo"
+                src="../../assets/images/logo.png"
+                alt="Logo"
+            /></a>
+            <h3>UltraVeg Pizza</h3>
+          </div>
+          <p>Bringing authentic Italian pizza to your table today.</p>
+        </div>
+        <div class="footer-column">
+          <h3>
+            <a
+              href="../../pages/view/contact.html"
+              aria-label="Go to contact section"
+              >Contact</a
+            >
+          </h3>
+          <ul class="footer-contact-list">
+            <li>
+              <i class="fa-solid fa-location-dot"></i
+              ><span>Redeemers University, Ede, Osun State, Nigeria.</span>
+            </li>
+            <li>
+              <i class="fa-solid fa-phone"></i><span>+234 706 4207 988</span>
+            </li>
+            <li>
+              <i class="fa-solid fa-envelope"></i
+              ><span>ultravegpizza@gmail.com</span>
+            </li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3>
+            <a
+              href="../../pages/view/contact.html"
+              aria-label="Go to hours section"
+              >Opening Hours</a
+            >
+          </h3>
+          <ul class="footer-days-list">
+            <li>Monday - Sunday</li>
+            <li>10:00 AM - 10:00 PM</li>
+          </ul>
+        </div>
+        <div class="footer-column footer-social-column">
+          <h3>
+            <a
+              href="../../pages/view/contact.html"
+              aria-label="Go to social section"
+              >Follow Us</a
+            >
+          </h3>
+          <div class="footer-socials">
+            <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+            <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-divider section-shell"></div>
+      <div class="footer-copy section-shell">
+        © 2026 UltraVeg Pizza. All rights reserved. | Crafted with care
+      </div>
+    </footer>
+
+    <!-- Load jsPDF library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+    <!-- Main confirmation script -->
+    <script type="module">
+      import {
+        downloadReceiptPDF,
+        openReceiptPDF,
+      } from "../../js/utils/pdfReceipt.js";
+
+      const currentOrder = JSON.parse(
+        localStorage.getItem("ultraveg_current_order") || "null",
+      );
+
+      console.log("Order loaded from localStorage:", currentOrder);
+
+      function formatCurrency(value) {
+        return "₦" + Number(value || 0).toFixed(2);
+      }
+
+      function renderOrderDetails() {
+        if (!currentOrder) {
+          document.querySelector(".confirm-shell").innerHTML +=
+            '<div class="empty"><p>No order found. Please complete a checkout first.</p></div>';
+          return;
+        }
+
+        console.log("Rendering order with values:", {
+          subtotal: currentOrder.subtotal,
+          discount: currentOrder.discount,
+          deliveryFee: currentOrder.deliveryFee,
+          total: currentOrder.total,
+        });
+
+        // Render Meta Information
+        const metaContainer = document.getElementById("orderMeta");
+        if (metaContainer) {
+          metaContainer.innerHTML = `
+            <div class="meta-item">
+              <strong>Order ID</strong>
+              <div>${currentOrder.orderId}</div>
+            </div>
+            <div class="meta-item">
+              <strong>Order Date</strong>
+              <div>${new Date(currentOrder.date).toLocaleDateString()}</div>
+            </div>
+            <div class="meta-item">
+              <strong>Order Time</strong>
+              <div>${new Date(currentOrder.date).toLocaleTimeString()}</div>
+            </div>
+            <div class="meta-item">
+              <strong>Status</strong>
+              <div style="color: #f2653a; text-transform: uppercase;">${currentOrder.status}</div>
+            </div>
+          `;
+        }
+
+        // Render Order Items
+        const itemsContainer = document.getElementById("orderItemsList");
+        if (
+          itemsContainer &&
+          currentOrder.items &&
+          currentOrder.items.length > 0
+        ) {
+          itemsContainer.innerHTML = currentOrder.items
+            .map(
+              (item) => `
+            <div class="order-item">
+              <span class="order-item-name">${item.name} × ${item.quantity}</span>
+              <span class="order-item-price">${formatCurrency(item.price * item.quantity)}</span>
+            </div>
+          `,
+            )
+            .join("");
+        }
+
+        // Render Summary
+        const summarySubtotal = document.getElementById("summarySubtotal");
+        const summaryDelivery = document.getElementById("summaryDelivery");
+        const summaryTotal = document.getElementById("summaryTotal");
+
+        if (summarySubtotal)
+          summarySubtotal.textContent = formatCurrency(currentOrder.subtotal);
+        if (summaryDelivery)
+          summaryDelivery.textContent = formatCurrency(
+            currentOrder.deliveryFee,
+          );
+        if (summaryTotal)
+          summaryTotal.textContent = formatCurrency(currentOrder.total);
+
+        if (currentOrder.discount > 0) {
+          document.getElementById("discountRow").style.display = "flex";
+          document.getElementById("summaryDiscount").textContent =
+            formatCurrency(currentOrder.discount);
+        }
+
+        // Render Delivery Info
+        const deliveryContainer = document.getElementById("deliveryInfo");
+        if (deliveryContainer) {
+          deliveryContainer.innerHTML = `
+            <div style="margin-bottom: 12px;">
+              <strong>Recipient Name:</strong> ${currentOrder.customer.firstName} ${currentOrder.customer.lastName}
+            </div>
+            <div style="margin-bottom: 12px;">
+              <strong>Phone:</strong> ${currentOrder.customer.phone}
+            </div>
+            <div style="margin-bottom: 12px;">
+              <strong>Delivery Address:</strong><br>
+              ${currentOrder.customer.address}<br>
+              ${currentOrder.customer.city}
+            </div>
+            <div style="margin-bottom: 12px;">
+              <strong>Delivery Method:</strong> ${currentOrder.deliveryMethod.replace("-", " ").toUpperCase()}
+            </div>
+            <div>
+              <strong>Payment Method:</strong> ${currentOrder.paymentMethod.replace("-", " ").toUpperCase()}
+            </div>
+          `;
+        }
+
+        // Set estimated delivery time
+        const estimatedTimeEl = document.getElementById("estimatedTime");
+        if (estimatedTimeEl) {
+          const time =
+            currentOrder.deliveryMethod === "express"
+              ? "15-20 minutes"
+              : "30-45 minutes";
+          estimatedTimeEl.textContent = time;
+        }
+
+        // Setup PDF buttons
+        const downloadBtn = document.getElementById("downloadPdfBtn");
+        const viewBtn = document.getElementById("viewPdfBtn");
+
+        if (downloadBtn) {
+          downloadBtn.addEventListener("click", () => {
+            downloadReceiptPDF(currentOrder);
+          });
+        }
+
+        if (viewBtn) {
+          viewBtn.addEventListener("click", () => {
+            openReceiptPDF(currentOrder);
+          });
+        }
+      }
+
+      // Render on page load
+      renderOrderDetails();
+    </script>
   </body>
 </html>

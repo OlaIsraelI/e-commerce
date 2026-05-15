@@ -89,7 +89,7 @@
               <strong id="wishlistItemCount">0</strong> items saved
             </div>
             <div class="stat-badge">
-              <strong id="totalSavingsStat">â‚¦0</strong> total savings
+              <strong id="totalSavingsStat">₦0</strong> total savings
             </div>
           </div>
         </div>
@@ -107,12 +107,12 @@
         >
           <div class="summary-flex">
             <div class="total-savings">
-              <div class="label">ðŸŽ‰ You're Saving</div>
-              <div class="amount" id="totalSavingsAmount">â‚¦0</div>
+              <div class="label">You're Saving</div>
+              <div class="amount" id="totalSavingsAmount">₦0</div>
             </div>
             <div class="wishlist-grand-total">
               <div class="label">Wishlist Value</div>
-              <div class="amount" id="wishlistGrandTotal">â‚¦0</div>
+              <div class="amount" id="wishlistGrandTotal">₦0</div>
             </div>
             <div class="action-buttons">
               <a href="menu.html" class="btn-secondary-custom">
@@ -136,7 +136,7 @@
               />
               <div class="rec-card-content">
                 <h4>Spicy Pepperoni Blast</h4>
-                <span class="rec-price">â‚¦23,500</span>
+                <span class="rec-price">₦23,500</span>
               </div>
             </a>
             <a href="menu.html" class="rec-card">
@@ -146,7 +146,7 @@
               />
               <div class="rec-card-content">
                 <h4>Cheese Lovers Paradise</h4>
-                <span class="rec-price">â‚¦21,000</span>
+                <span class="rec-price">₦21,000</span>
               </div>
             </a>
             <a href="menu.html" class="rec-card">
@@ -156,7 +156,7 @@
               />
               <div class="rec-card-content">
                 <h4>Mediterranean Delight</h4>
-                <span class="rec-price">â‚¦24,000</span>
+                <span class="rec-price">₦24,000</span>
               </div>
             </a>
             <a href="menu.html" class="rec-card">
@@ -166,7 +166,7 @@
               />
               <div class="rec-card-content">
                 <h4>BBQ Chicken Supreme</h4>
-                <span class="rec-price">â‚¦25,500</span>
+                <span class="rec-price">₦25,500</span>
               </div>
             </a>
           </div>
@@ -174,21 +174,28 @@
       </div>
     </main>
 
-    <footer class="footer">
+    <footer class="footer" id="contact">
       <div class="section-shell footer-grid">
         <div class="footer-brand">
           <div class="footer-brand-head">
-            <img
-              class="footer-logo"
-              src="../../assets/images/logo.png"
-              alt="Logo"
-            />
+            <a href="../../index.html" aria-label="Go to home section">
+              <img
+                class="footer-logo"
+                src="../../assets/images/logo.png"
+                alt="Logo"
+            /></a>
             <h3>UltraVeg Pizza</h3>
           </div>
           <p>Bringing authentic Italian pizza to your table today.</p>
         </div>
         <div class="footer-column">
-          <h3>Contact</h3>
+          <h3>
+            <a
+              href="../../pages/view/contact.html"
+              aria-label="Go to contact section"
+              >Contact</a
+            >
+          </h3>
           <ul class="footer-contact-list">
             <li>
               <i class="fa-solid fa-location-dot"></i
@@ -204,14 +211,26 @@
           </ul>
         </div>
         <div class="footer-column">
-          <h3>Opening Hours</h3>
+          <h3>
+            <a
+              href="../../pages/view/contact.html"
+              aria-label="Go to hours section"
+              >Opening Hours</a
+            >
+          </h3>
           <ul class="footer-days-list">
             <li>Monday - Sunday</li>
             <li>10:00 AM - 10:00 PM</li>
           </ul>
         </div>
         <div class="footer-column footer-social-column">
-          <h3>Follow Us</h3>
+          <h3>
+            <a
+              href="../../pages/view/contact.html"
+              aria-label="Go to social section"
+              >Follow Us</a
+            >
+          </h3>
           <div class="footer-socials">
             <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
             <a href="#"><i class="fa-brands fa-instagram"></i></a>
@@ -220,8 +239,9 @@
           </div>
         </div>
       </div>
+      <div class="footer-divider section-shell"></div>
       <div class="footer-copy section-shell">
-        Â© 2026 UltraVeg Pizza. All rights reserved. | Crafted with care
+        © 2026 UltraVeg Pizza. All rights reserved. | Crafted with care
       </div>
     </footer>
 
@@ -370,7 +390,7 @@
           `;
           summarySection.style.display = "none";
           if (itemCountEl) itemCountEl.textContent = "0";
-          if (totalSavingsStat) totalSavingsStat.textContent = "â‚¦0";
+          if (totalSavingsStat) totalSavingsStat.textContent = "₦0";
 
           const sampleBtn = document.getElementById("addSampleWishlistBtn");
           if (sampleBtn) {
@@ -397,9 +417,9 @@
                 <span>${item.rating}</span>
               </div>
               <div class="price-section">
-                <span class="current-price">â‚¦${item.price.toLocaleString()}</span>
-                ${item.oldPrice ? `<span class="old-price">â‚¦${item.oldPrice.toLocaleString()}</span>` : ""}
-                ${item.oldPrice ? `<span class="savings">Save â‚¦${(item.oldPrice - item.price).toLocaleString()}</span>` : ""}
+                <span class="current-price">₦${item.price.toLocaleString()}</span>
+                ${item.oldPrice ? `<span class="old-price">₦${item.oldPrice.toLocaleString()}</span>` : ""}
+                ${item.oldPrice ? `<span class="savings">Save ₦${(item.oldPrice - item.price).toLocaleString()}</span>` : ""}
               </div>
               <div class="wishlist-actions">
                 <button class="move-to-cart-btn" onclick="moveToCart(${item.id})">
@@ -420,11 +440,11 @@
 
         if (itemCountEl) itemCountEl.textContent = wishlist.length;
         if (totalSavingsStat)
-          totalSavingsStat.textContent = `â‚¦${savings.toLocaleString()}`;
+          totalSavingsStat.textContent = `₦${savings.toLocaleString()}`;
         if (totalSavingsAmount)
-          totalSavingsAmount.textContent = `â‚¦${savings.toLocaleString()}`;
+          totalSavingsAmount.textContent = `₦${savings.toLocaleString()}`;
         if (grandTotalEl)
-          grandTotalEl.textContent = `â‚¦${total.toLocaleString()}`;
+          grandTotalEl.textContent = `₦${total.toLocaleString()}`;
 
         summarySection.style.display = "block";
       }
@@ -525,7 +545,6 @@
         }
       });
     </script>
-      <script type="module" src="../../js/menu-view.js"></script>
+    <script type="module" src="../../js/menu-view.js"></script>
   </body>
 </html>
-

@@ -63,6 +63,7 @@ const userSchema = new mongoose.Schema(
       default: false,
     },
 
+    // OTP verification fields
     otp: String,
     otpExpires: Date,
     otpAttempts: {
@@ -70,9 +71,18 @@ const userSchema = new mongoose.Schema(
       default: 0,
     },
     otpLastSent: Date,
+    otpLockedUntil: Date, // Temporary lockout after too many attempts
 
+    // Password reset fields
     resetPasswordToken: String,
     resetPasswordExpires: Date,
+
+    // Account security fields
+    failedLoginAttempts: {
+      type: Number,
+      default: 0,
+    },
+    accountLockedUntil: Date, // Temporary lockout after too many failed logins
   },
   { timestamps: true },
 );

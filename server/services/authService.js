@@ -128,18 +128,43 @@ exports.verifyOTP = async (email, otp) => {
   const normalizedEmail = email.toLowerCase().trim();
   const user = await User.findOne({ email: normalizedEmail });
 
-  if (!user || !user.otp || !user.otpExpires || user.otpExpires < Date.now()) {
+  if (!user) {
+    throw new AppError("User not found", 404);
+  }
+
+  // Check if OTP is temporarily locked due to too many attempts
+  if (user.otpLockedUntil && user.otpLockedUntil > new Date()) {
+    const minutesRemaining = Math.ceil(
+      (user.otpLockedUntil - new Date()) / (60 * 1000),
+    );
+    throw new AppError(
+      `Too many OTP attempts. Please try again in ${minutesRemaining} minutes.`,
+      429,
+    );
+  }
+
+  if (!user.otp || !user.otpExpires || user.otpExpires < Date.now()) {
     throw new AppError("Invalid or expired OTP", 400);
   }
 
   if ((user.otpAttempts || 0) >= 5) {
-    throw new AppError("Too many OTP attempts. Request a new OTP", 400);
+    // Lock OTP verification for 15 minutes after 5 failed attempts
+    user.otpLockedUntil = new Date(Date.now() + 15 * 60 * 1000);
+    await user.save();
+    throw new AppError(
+      "Too many OTP verification attempts. Please try again in 15 minutes.",
+      429,
+    );
   }
 
   if (user.otp !== hashOTP(otp)) {
     user.otpAttempts = (user.otpAttempts || 0) + 1;
     await user.save();
-    throw new AppError("Invalid or expired OTP", 400);
+    const remainingAttempts = 5 - (user.otpAttempts || 0);
+    throw new AppError(
+      `Invalid OTP. ${remainingAttempts} attempts remaining.`,
+      400,
+    );
   }
 
   user.isVerified = true;
@@ -147,6 +172,7 @@ exports.verifyOTP = async (email, otp) => {
   user.otpExpires = undefined;
   user.otpAttempts = 0;
   user.otpLastSent = undefined;
+  user.otpLockedUntil = undefined;
 
   await user.save();
 };
@@ -160,23 +186,42 @@ exports.resendOTP = async (email) => {
     throw new AppError("User not found", 404);
   }
 
+  // Check if OTP is locked
+  if (user.otpLockedUntil && user.otpLockedUntil > new Date()) {
+    const minutesRemaining = Math.ceil(
+      (user.otpLockedUntil - new Date()) / (60 * 1000),
+    );
+    throw new AppError(
+      `OTP is temporarily locked. Please try again in ${minutesRemaining} minutes.`,
+      429,
+    );
+  }
+
+  // Check cooldown period between resend attempts (60 seconds)
   if (
     user.otpLastSent &&
     Date.now() - new Date(user.otpLastSent).getTime() < 60 * 1000
   ) {
-    throw new AppError("Please wait before requesting another OTP", 400);
+    throw new AppError(
+      "Please wait at least 60 seconds before requesting another OTP",
+      400,
+    );
   }
 
   const otp = generateOTP();
 
   user.otp = hashOTP(otp);
-  user.otpExpires = Date.now() + 10 * 60 * 1000;
+  user.otpExpires = Date.now() + 10 * 60 * 1000; // 10 minutes
   user.otpAttempts = 0;
   user.otpLastSent = Date.now();
 
   await user.save();
 
-  await sendEmail(user.email, "Resend OTP", `Your new OTP is ${otp}`);
+  await sendEmail(
+    user.email,
+    "Your OTP Verification Code",
+    `Your OTP is: ${otp}\n\nThis OTP will expire in 10 minutes.\n\nDo not share this code with anyone.`,
+  );
 };
 
 // LOGIN
@@ -188,12 +233,47 @@ exports.login = async (email, password, req = {}) => {
 
   if (!user) throw new AppError("User not found", 404);
 
+  // Check if account is temporarily locked due to too many failed login attempts
+  if (user.accountLockedUntil && user.accountLockedUntil > new Date()) {
+    const minutesRemaining = Math.ceil(
+      (user.accountLockedUntil - new Date()) / (60 * 1000),
+    );
+    throw new AppError(
+      `Account temporarily locked due to too many failed login attempts. Please try again in ${minutesRemaining} minutes.`,
+      429,
+    );
+  }
+
   if (!user.isVerified) {
     throw new AppError("Please verify your account before logging in", 403);
   }
 
   const match = await comparePassword(password, user.password);
-  if (!match) throw new AppError("Invalid credentials", 401);
+  if (!match) {
+    // Increment failed login attempts
+    user.failedLoginAttempts = (user.failedLoginAttempts || 0) + 1;
+
+    // Lock account after 5 failed attempts for 30 minutes
+    if (user.failedLoginAttempts >= 5) {
+      user.accountLockedUntil = new Date(Date.now() + 30 * 60 * 1000);
+      await user.save();
+      throw new AppError(
+        "Account locked due to too many failed login attempts. Please try again in 30 minutes or reset your password.",
+        429,
+      );
+    }
+
+    await user.save();
+    const remainingAttempts = 5 - user.failedLoginAttempts;
+    throw new AppError(
+      `Invalid credentials. ${remainingAttempts} attempts remaining before account lockout.`,
+      401,
+    );
+  }
+
+  // Reset failed login attempts on successful login
+  user.failedLoginAttempts = 0;
+  user.accountLockedUntil = undefined;
 
   const sessionId = crypto.randomUUID();
   const authUser = { ...user.toObject(), sessionId };
@@ -204,12 +284,19 @@ exports.login = async (email, password, req = {}) => {
   const deviceInfo = getDeviceInfo(req);
 
   user.sessions = user.sessions || [];
+
+  // Limit max sessions per user to 5 to prevent excessive sessions
+  if (user.sessions.length >= 5) {
+    user.sessions.shift(); // Remove oldest session
+  }
+
   user.sessions.push({
     sessionId,
     refreshToken: refreshTokenHash,
     userAgent: deviceInfo.userAgent,
     ip: deviceInfo.ip,
   });
+
   await user.save();
 
   user.password = undefined;
@@ -225,24 +312,34 @@ exports.forgotPassword = async (email) => {
 
   if (!user) throw new AppError("User not found", 404);
 
+  // Generate token and hash it before storing
   const token = crypto.randomBytes(32).toString("hex");
+  const tokenHash = hashToken(token);
 
-  user.resetPasswordToken = token;
-  user.resetPasswordExpires = Date.now() + 10 * 60 * 1000;
+  user.resetPasswordToken = tokenHash;
+  user.resetPasswordExpires = Date.now() + 10 * 60 * 1000; // 10 minutes
 
   await user.save();
 
-  await sendEmail(normalizedEmail, "Password Reset", `Reset token: ${token}`);
+  // Send the plain token (not the hash) to the user
+  await sendEmail(
+    normalizedEmail,
+    "Password Reset Request",
+    `Your password reset token: ${token}\n\nThis token expires in 10 minutes.\n\nDo not share this token with anyone.`,
+  );
 };
 
 // RESET PASSWORD
 exports.resetPassword = async (token, newPassword) => {
+  // Hash the provided token to compare with stored hash
+  const tokenHash = hashToken(token);
+
   const user = await User.findOne({
-    resetPasswordToken: token,
+    resetPasswordToken: tokenHash,
     resetPasswordExpires: { $gt: Date.now() },
   });
 
-  if (!user) throw new AppError("Invalid or expired token", 400);
+  if (!user) throw new AppError("Invalid or expired reset token", 400);
 
   user.password = await hashPassword(newPassword);
   user.resetPasswordToken = undefined;

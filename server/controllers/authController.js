@@ -92,15 +92,19 @@ exports.login = asyncHandler(async (req, res) => {
   setAccessTokenCookie(res, data.accessToken);
   setRefreshTokenCookie(res, data.refreshToken);
 
+  // Return only user data (tokens are in HTTP-only cookies)
   res.status(200).json({
     success: true,
-    data,
+    data: {
+      user: data.user,
+    },
   });
 });
 
 // REFRESH TOKEN
 exports.refreshToken = asyncHandler(async (req, res) => {
-  const token = req.cookies?.refreshToken || req.body.refreshToken;
+  // Only read from cookies (not from request body for security)
+  const token = req.cookies?.refreshToken;
 
   if (!token) {
     // Clear any existing cookies and return 401 Unauthorized
@@ -114,9 +118,10 @@ exports.refreshToken = asyncHandler(async (req, res) => {
   setAccessTokenCookie(res, data.accessToken);
   setRefreshTokenCookie(res, data.refreshToken);
 
+  // Return success response only (tokens are in HTTP-only cookies)
   res.status(200).json({
     success: true,
-    data,
+    message: "Token refreshed",
   });
 });
 

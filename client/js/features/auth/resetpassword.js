@@ -1,16 +1,23 @@
 import { resetPassword } from "../../services/api/authApi.js";
 import { showMessage } from "../../utils/ui.js";
 import { getLoginPageHref } from "../../utils/navigation.js";
+import {
+  validatePassword,
+  doPasswordsMatch,
+} from "../../utils/passwordValidator.js";
+import { formatErrorMessage } from "../../utils/errorFormatter.js";
 
 const form = document.getElementById("resetPasswordForm");
 const submitBtn = form?.querySelector("button[type='submit']");
-const PASSWORD_REGEX = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d@$!%*?&]{8,}$/;
 
 const params = new URLSearchParams(window.location.search);
 const token = params.get("token");
 
 if (!token) {
-  showMessage("Invalid or missing token.", "error");
+  showMessage(
+    "Invalid reset link. Please request a new password reset.",
+    "error",
+  );
 }
 
 form?.addEventListener("submit", async (e) => {
@@ -20,21 +27,23 @@ form?.addEventListener("submit", async (e) => {
   const password = formData.get("password");
   const confirmPassword = formData.get("confirm-password");
 
+  // Field validation
   if (!password || !confirmPassword) {
     showMessage("All fields are required.", "error");
     return;
   }
 
-  if (!PASSWORD_REGEX.test(String(password || ""))) {
-    showMessage(
-      "Password must be at least 8 characters and include at least one letter and one number.",
-      "error",
-    );
+  // Password strength validation
+  const passwordValidation = validatePassword(password);
+  if (!passwordValidation.valid) {
+    showMessage(passwordValidation.errors[0], "error");
     return;
   }
 
-  if (password !== confirmPassword) {
-    showMessage("Passwords do not match.", "error");
+  // Password match validation
+  const passwordMatch = doPasswordsMatch(password, confirmPassword);
+  if (!passwordMatch.match) {
+    showMessage(passwordMatch.error, "error");
     return;
   }
 
@@ -46,13 +55,18 @@ form?.addEventListener("submit", async (e) => {
 
     const res = await resetPassword(token, { newPassword: password });
 
-    showMessage(res.message || "Password reset successful!", "success");
+    showMessage(
+      "✓ Password reset successful! Redirecting to login...",
+      "success",
+      2000,
+    );
 
     setTimeout(() => {
       window.location.href = getLoginPageHref();
-    }, 1500);
+    }, 2000);
   } catch (err) {
-    showMessage(err.message || "Failed to reset password.", "error");
+    const friendlyMessage = formatErrorMessage(err.message);
+    showMessage(friendlyMessage, "error");
   } finally {
     if (submitBtn) {
       submitBtn.disabled = false;

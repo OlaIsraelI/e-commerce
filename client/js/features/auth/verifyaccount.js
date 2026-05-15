@@ -1,6 +1,7 @@
 import { verifyOtp, resendOtp } from "../../services/api/authApi.js";
 import { showMessage } from "../../utils/ui.js";
 import { getLoginPageHref } from "../../utils/navigation.js";
+import { formatErrorMessage } from "../../utils/errorFormatter.js";
 
 const form = document.getElementById("verifyAccountForm");
 const submitBtn = form?.querySelector("button[type='submit']");
@@ -26,8 +27,8 @@ form?.addEventListener("submit", async (e) => {
     return;
   }
 
-  if (otp.length !== 6) {
-    showMessage("OTP must be 6 digits.", "error");
+  if (otp.length !== 6 || !/^\d+$/.test(otp)) {
+    showMessage("OTP must be exactly 6 digits.", "error");
     return;
   }
 
@@ -39,13 +40,18 @@ form?.addEventListener("submit", async (e) => {
 
     const res = await verifyOtp({ email, otp });
 
-    showMessage(res?.message || "Account verified successfully!", "success");
+    showMessage(
+      "✓ Account verified successfully! Redirecting to login...",
+      "success",
+      1500,
+    );
 
     setTimeout(() => {
       window.location.href = getLoginPageHref();
-    }, 900);
+    }, 1500);
   } catch (error) {
-    showMessage(error.message || "Verification failed.", "error");
+    const friendlyMessage = formatErrorMessage(error.message);
+    showMessage(friendlyMessage, "error");
   } finally {
     if (submitBtn) {
       submitBtn.disabled = false;
@@ -60,14 +66,30 @@ resendLink?.addEventListener("click", async (e) => {
   const email = String(emailInput?.value || "").trim();
 
   if (!email) {
-    showMessage("Enter your email first.", "error");
+    showMessage("Please enter your email address.", "error");
+    return;
+  }
+
+  if (!email.includes("@")) {
+    showMessage("Please enter a valid email address.", "error");
     return;
   }
 
   try {
+    // Disable resend link during request
+    resendLink.classList.add("disabled");
+    resendLink.style.pointerEvents = "none";
+    resendLink.style.opacity = "0.5";
+
     await resendOtp({ email });
-    showMessage("OTP sent. Check your inbox.", "success");
+    showMessage("✓ OTP sent! Check your inbox.", "success", 2000);
   } catch (error) {
-    showMessage(error.message || "Failed to resend OTP.", "error");
+    const friendlyMessage = formatErrorMessage(error.message);
+    showMessage(friendlyMessage, "error");
+  } finally {
+    // Re-enable resend link
+    resendLink.classList.remove("disabled");
+    resendLink.style.pointerEvents = "auto";
+    resendLink.style.opacity = "1";
   }
 });

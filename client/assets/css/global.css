@@ -377,36 +377,6 @@ main {
   gap: 14px;
 }
 
-.hero-stats {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 14px;
-  margin-top: 8px;
-}
-
-.hero-stats div,
-.testimonial-card,
-.category-card,
-.product-card,
-.mini-menu-grid article {
-  border-radius: var(--radius-md);
-  background: rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(10px);
-}
-
-.hero-stats div {
-  padding: 18px;
-}
-
-.hero-stats strong {
-  display: block;
-  font-size: 1.4rem;
-}
-
-.hero-stats span {
-  color: rgba(247, 244, 239, 0.7);
-}
-
 .hero-visual {
   line-height: 0;
 }
@@ -568,9 +538,9 @@ main {
 }
 
 .service-icon-about {
-  width: 70px;
-  height: 70px;
-  background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+  width: 48px;
+  height: 48px;
+  font-size: 1.2rem;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -1386,6 +1356,18 @@ main {
 @media (max-width: 480px) {
   .performance-stats {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 360px) {
+  .footer-socials {
+    gap: 8px;
+  }
+
+  .footer-socials a {
+    width: 36px;
+    height: 36px;
+    font-size: 1rem;
   }
 }
 
@@ -2927,6 +2909,17 @@ h3 {
   margin-top: 4px;
 }
 
+.footer-contact-list a {
+  color: rgba(247, 244, 239, 0.82);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-contact-list a:hover {
+  color: #ff3945;
+  text-decoration: underline;
+}
+
 .footer-days-list li {
   color: rgba(247, 244, 239, 0.72);
   font-size: 0.96rem;
@@ -2934,15 +2927,17 @@ h3 {
 
 .footer-socials {
   display: flex;
-  gap: 16px;
-  flex-wrap: wrap;
+  gap: 12px;
+  flex-wrap: nowrap;
   align-items: center;
   margin-top: 6px;
+  white-space: nowrap;
 }
 
 .footer-socials a {
-  width: 60px;
-  height: 60px;
+  flex: 0 0 auto;
+  width: 44px;
+  height: 44px;
   border-radius: 999px;
   margin-bottom: 0;
   display: inline-flex;
@@ -2950,12 +2945,13 @@ h3 {
   justify-content: center;
   background: #223147;
   color: #fff;
-  font-size: 1.5rem;
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.24);
+  font-size: 1.15rem;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
 }
 
 .footer-socials a i {
   line-height: 1;
+  display: inline-block;
 }
 
 .footer-socials a:hover {
@@ -3223,9 +3219,9 @@ h3 {
   }
 
   .footer-socials a {
-    width: 54px;
-    height: 54px;
-    font-size: 1.3rem;
+    width: 44px;
+    height: 44px;
+    font-size: 1.1rem;
   }
 
   .footer-copy {

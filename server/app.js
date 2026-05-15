@@ -10,6 +10,11 @@ const productRoutes = require("./routes/productRoutes");
 const errorMiddleware = require("./middlewares/errorMiddleware");
 const env = require("./config/env");
 const authRoutes = require("./routes/authRoutes");
+const {
+  csrfProtection,
+  attachCSRFToken,
+} = require("./middlewares/csrfProtection");
+const protect = require("./middlewares/authMiddleware");
 
 const app = express();
 const clientDir = path.resolve(__dirname, "..", "client");
@@ -21,7 +26,13 @@ setupMiddlewares(app);
 app.use(express.static(clientDir));
 
 // routes
-app.use("/api/products", productRoutes);
+app.use(
+  "/api/products",
+  protect,
+  attachCSRFToken,
+  csrfProtection,
+  productRoutes,
+);
 
 app.use("/api/auth", authRoutes);
 

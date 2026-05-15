@@ -22,6 +22,13 @@ const {
   deleteAccount,
   refreshToken,
 } = require("../controllers/authController");
+const {
+  authLimiter,
+  registerLimiter,
+  passwordResetLimiter,
+  otpVerifyLimiter,
+  otpResendLimiter,
+} = require("../middlewares/rateLimitMiddleware");
 
 const registerValidation = [
   body("name").optional().isString().trim().isLength({ min: 2 }),
@@ -101,23 +108,46 @@ const updateMeValidation = [
   }),
 ];
 
-router.post("/register", registerValidation, validate, register);
-router.post("/verify-otp", verifyOtpValidation, validate, verifyOTP);
-router.post("/resend-otp", forgotPasswordValidation, validate, resendOTP);
-router.post("/login", loginValidation, validate, login);
-router.post("/refresh", refreshToken);
+// Authentication routes with rate limiting
+router.post(
+  "/register",
+  registerLimiter,
+  registerValidation,
+  validate,
+  register,
+);
+router.post(
+  "/verify-otp",
+  otpVerifyLimiter,
+  verifyOtpValidation,
+  validate,
+  verifyOTP,
+);
+router.post(
+  "/resend-otp",
+  otpResendLimiter,
+  forgotPasswordValidation,
+  validate,
+  resendOTP,
+);
+router.post("/login", authLimiter, loginValidation, validate, login);
+router.post("/refresh", authLimiter, refreshToken);
 router.post(
   "/forgot-password",
+  passwordResetLimiter,
   forgotPasswordValidation,
   validate,
   forgotPassword,
 );
 router.post(
   "/reset-password",
+  passwordResetLimiter,
   resetPasswordValidation,
   validate,
   resetPassword,
 );
+
+// Protected routes (require authentication)
 router.get("/me", protect, getMe);
 router.patch("/me", protect, updateMeValidation, validate, updateMe);
 router.post("/logout", protect, logout);

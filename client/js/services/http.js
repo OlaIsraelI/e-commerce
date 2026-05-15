@@ -1,18 +1,20 @@
 import ENV from "../config/env.js";
 import { authService } from "./authService.js";
+import { csrfTokenManager } from "../utils/csrfToken.js";
 import { getLoginPageHref } from "../utils/navigation.js";
 
+/**
+ * Refresh session by calling the refresh token endpoint
+ * Tokens are stored in HTTP-only cookies and automatically sent with credentials: "include"
+ * Server returns new tokens in Set-Cookie headers (HTTP-only)
+ */
 const refreshSession = async () => {
-  const refreshToken = authService.getRefreshToken();
-
   const response = await fetch(`${ENV.BASE_URL}/auth/refresh`, {
     method: "POST",
     credentials: "include",
     headers: {
       "Content-Type": "application/json",
-      ...(refreshToken ? { Authorization: `Bearer ${refreshToken}` } : {}),
     },
-    ...(refreshToken ? { body: JSON.stringify({ refreshToken }) } : {}),
   });
 
   const data = await response.json().catch(() => null);
@@ -23,26 +25,33 @@ const refreshSession = async () => {
     throw new Error(data?.message || "Session expired");
   }
 
-  // Store new tokens if provided
-  if (data?.data?.accessToken) {
-    authService.setAccessToken(data.data.accessToken);
-  }
-  if (data?.data?.refreshToken) {
-    authService.setRefreshToken(data.data.refreshToken);
-  }
-
   return data;
 };
 
+/**
+ * HTTP utility for making authenticated requests
+ * Security features:
+ * - Uses HTTP-only cookies for token storage (automatic with credentials: "include")
+ * - Automatically refreshes tokens on 401 responses
+ * - Handles token rotation transparently
+ * - Includes CSRF tokens on state-changing requests
+ * - Never exposes tokens in JavaScript or network logs
+ */
 export const http = async (endpoint, options = {}) => {
-  const accessToken = authService.getAccessToken();
+  // Determine if this is a state-changing request that needs CSRF token
+  const isStateChanging = ["POST", "PUT", "PATCH", "DELETE"].includes(
+    options.method || "GET",
+  );
 
   const config = {
     method: options.method || "GET",
-    credentials: "include",
+    credentials: "include", // Send cookies (HTTP-only tokens) with request
     headers: {
       "Content-Type": "application/json",
-      ...(accessToken ? { Authorization: `Bearer ${accessToken}` } : {}),
+      // Add CSRF token for state-changing requests
+      ...(isStateChanging && csrfTokenManager.getToken()
+        ? { "X-CSRF-Token": csrfTokenManager.getToken() }
+        : {}),
       ...(options.headers || {}),
     },
   };
@@ -55,31 +64,31 @@ export const http = async (endpoint, options = {}) => {
     const res = await fetch(`${ENV.BASE_URL}${endpoint}`, config);
     let data = await res.json().catch(() => null);
 
-    // Extract and store new tokens from response if present
-    if (data?.data?.accessToken) {
-      authService.setAccessToken(data.data.accessToken);
-    }
-    if (data?.data?.refreshToken) {
-      authService.setRefreshToken(data.data.refreshToken);
-    }
+    // Extract and store any new CSRF token from response headers
+    csrfTokenManager.handleResponseHeaders(res.headers);
 
+    // If we get a 401 and we're allowed to refresh, try refreshing the token
     if (res.status === 401 && !options.skipAuthRefresh && !options.__retried) {
       try {
         await refreshSession();
-        // Retry the original request after successful refresh with new token
-        const newAccessToken = authService.getAccessToken();
+
+        // Retry the original request with the new token (in cookies) and fresh CSRF token
         const retryConfig = {
           ...config,
           headers: {
             ...config.headers,
-            ...(newAccessToken
-              ? { Authorization: `Bearer ${newAccessToken}` }
+            // Get fresh CSRF token for retry
+            ...(isStateChanging && csrfTokenManager.getToken()
+              ? { "X-CSRF-Token": csrfTokenManager.getToken() }
               : {}),
           },
         };
 
         const retryRes = await fetch(`${ENV.BASE_URL}${endpoint}`, retryConfig);
         data = await retryRes.json().catch(() => null);
+
+        // Extract CSRF token from retry response
+        csrfTokenManager.handleResponseHeaders(retryRes.headers);
 
         if (!retryRes.ok) {
           throw new Error(data?.message || "An error occurred");
