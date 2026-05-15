@@ -94,7 +94,10 @@
                       <i class="fa-solid fa-shopping-cart"></i>
                       <h3>Your cart is empty</h3>
                       <p>Looks like you haven't added any pizzas yet.</p>
-                      <a href="menu.html" class="browse-menu">Browse Menu</a>
+                      <!-- FIXED: Changed class from continue-shopping to browse-menu -->
+                      <a href="menu/menu.html" class="browse-menu"
+                        >Browse Menu</a
+                      >
                     </div>
                   </td>
                 </tr>
@@ -154,7 +157,8 @@
               Proceed to Checkout
             </button>
             <button id="clearCartBtn" class="clear-cart-btn">Clear Cart</button>
-            <a href="menu.html" class="continue-shopping">
+            <!-- Continue Shopping link - works correctly -->
+            <a href="menu/menu.html" class="continue-shopping">
               <i class="fa-solid fa-arrow-left"></i> Continue Shopping
             </a>
           </div>
@@ -164,7 +168,7 @@
         <div class="popular-products">
           <h2>You May Also Like</h2>
           <div class="popular-grid">
-            <a href="menu.html" class="popular-card">
+            <a href="menu/menu.html" class="popular-card">
               <img
                 src="../../assets/images/delicious-whole-vegetable-pizza.jpg"
                 alt="Veggie Pizza"
@@ -175,7 +179,7 @@
                 <span class="new-price"> ₦22,000</span>
               </div>
             </a>
-            <a href="menu.html" class="popular-card">
+            <a href="menu/menu.html" class="popular-card">
               <img
                 src="../../assets/images/pizza-with-extra-cheese.jpg"
                 alt="Cheese Pizza"
@@ -186,7 +190,7 @@
                 <span class="new-price"> ₦22,000</span>
               </div>
             </a>
-            <a href="menu.html" class="popular-card">
+            <a href="menu/menu.html" class="popular-card">
               <img
                 src="../../assets/images/pepperoni-pizza.jpg"
                 alt="Pepperoni"
@@ -197,7 +201,7 @@
                 <span class="new-price"> ₦23,000</span>
               </div>
             </a>
-            <a href="menu.html" class="popular-card">
+            <a href="menu/menu.html" class="popular-card">
               <img src="../../assets/images/margherita.jpg" alt="Margherita" />
               <div class="popular-card-content">
                 <h4>Italian Margherita</h4>
@@ -350,7 +354,8 @@
         const deliveryFeeEl = document.getElementById("deliveryFee");
 
         if (!cart.length) {
-          tbody.innerHTML = `<tr class="empty-row"><td colspan="5"><div class="empty-cart"><i class="fa-solid fa-shopping-cart"></i><h3>Your cart is empty</h3><p>Looks like you haven't added any pizzas yet.</p><a href="menu.html" class="browse-menu">Browse Menu</a></div></td></tr>`;
+          // FIXED: Changed href from "menu.html" to "menu/menu.html"
+          tbody.innerHTML = `<tr class="empty-row"><td colspan="5"><div class="empty-cart"><i class="fa-solid fa-shopping-cart"></i><h3>Your cart is empty</h3><p>Looks like you haven't added any pizzas yet.</p><a href="menu/menu.html" class="browse-menu">Browse Menu</a></div> </td> </tr>`;
           if (subtotalEl) subtotalEl.textContent = formatCurrency(0);
           if (totalEl) totalEl.textContent = formatCurrency(0);
           if (deliveryFeeEl) deliveryFeeEl.textContent = formatCurrency(0);
@@ -372,7 +377,7 @@
                   <p>${item.category || "Pizza"}</p>
                 </div>
               </div>
-            </td>
+             </td>
             <td data-label="Price" class="price-cell">${formatCurrency(item.price)}</td>
             <td data-label="Quantity">
               <div class="quantity-control">
@@ -380,10 +385,10 @@
                 <input type="number" class="quantity-input" value="${item.quantity}" min="1" onchange="updateQuantity(${idx}, parseInt(this.value))">
                 <button class="qty-btn" onclick="updateQuantity(${idx}, ${item.quantity + 1})">+</button>
               </div>
-            </td>
+             </td>
             <td data-label="Total" class="price-cell">${formatCurrency(item.price * item.quantity)}</td>
             <td><button class="remove-item-btn" onclick="removeFromCart(${idx})"><i class="fa-solid fa-trash"></i></button></td>
-          </tr>
+           </tr>
         `,
           )
           .join("");
@@ -494,7 +499,6 @@
       });
     </script>
     <script type="module" src="../../js/menu-view.js"></script>
-
     <script type="module" src="../../js/currency.js"></script>
   </body>
 </html>
