@@ -21,15 +21,22 @@
   overflow: hidden;
 }
 
-.category-hero::before {
-  content: "[ICON]";
-  position: absolute;
-  font-size: 150px;
-  right: 20px;
-  bottom: -30px;
-  opacity: 0.1;
-  pointer-events: none;
+.category-hero {
+  position: relative;
+  background:
+    linear-gradient(135deg, rgba(47, 111, 82, 0.85), rgba(30, 74, 56, 0.9)),
+    url("../images/softdrinks 00.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 28px;
+  padding: 40px 48px;
+  margin-bottom: 48px;
+  color: white;
+  overflow: hidden;
 }
+
+/* Remove the ::before pseudo-element entirely */
 
 .category-hero h1 {
   font-size: 2.2rem;
